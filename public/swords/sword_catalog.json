@@ -1,0 +1,2732 @@
+[
+  {
+    "id": "sword_1",
+    "file": "/swords/sword_1.png",
+    "source": "File 2022.png",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_2",
+    "file": "/swords/sword_2.png",
+    "source": "File 2022.png",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_3",
+    "file": "/swords/sword_3.png",
+    "source": "File 2022.png",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_4",
+    "file": "/swords/sword_4.png",
+    "source": "File 2022.png",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_5",
+    "file": "/swords/sword_5.png",
+    "source": "File 2022.png",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_6",
+    "file": "/swords/sword_6.png",
+    "source": "File 2022.png",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_7",
+    "file": "/swords/sword_7.png",
+    "source": "File 2022.png",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_8",
+    "file": "/swords/sword_8.png",
+    "source": "File 2022.png",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_9",
+    "file": "/swords/sword_9.png",
+    "source": "File 2022.png",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_10",
+    "file": "/swords/sword_10.png",
+    "source": "File 2022.png",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_11",
+    "file": "/swords/sword_11.png",
+    "source": "File 2022.png",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_12",
+    "file": "/swords/sword_12.png",
+    "source": "File 2022.png",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_13",
+    "file": "/swords/sword_13.png",
+    "source": "File 2022.png",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_14",
+    "file": "/swords/sword_14.png",
+    "source": "File 2022.png",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_15",
+    "file": "/swords/sword_15.png",
+    "source": "File 2022.png",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_16",
+    "file": "/swords/sword_16.png",
+    "source": "File 2022.png",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_17",
+    "file": "/swords/sword_17.png",
+    "source": "File 2022.png",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_18",
+    "file": "/swords/sword_18.png",
+    "source": "File 2022.png",
+    "row": 2,
+    "col": 5
+  },
+  {
+    "id": "sword_19",
+    "file": "/swords/sword_19.png",
+    "source": "File 2022.png",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_20",
+    "file": "/swords/sword_20.png",
+    "source": "File 2022.png",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_21",
+    "file": "/swords/sword_21.png",
+    "source": "File 2022.png",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_22",
+    "file": "/swords/sword_22.png",
+    "source": "File 2022.png",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_23",
+    "file": "/swords/sword_23.png",
+    "source": "File 2022.png",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_24",
+    "file": "/swords/sword_24.png",
+    "source": "File 2022.png",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_25",
+    "file": "/swords/sword_25.png",
+    "source": "File 2022.png",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_26",
+    "file": "/swords/sword_26.png",
+    "source": "File 2022.png",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_27",
+    "file": "/swords/sword_27.png",
+    "source": "File 2022.png",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_28",
+    "file": "/swords/sword_28.png",
+    "source": "File 2022.png",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_29",
+    "file": "/swords/sword_29.png",
+    "source": "File 2022.png",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_30",
+    "file": "/swords/sword_30.png",
+    "source": "File 2022.png",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_31",
+    "file": "/swords/sword_31.png",
+    "source": "File 2023.png",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_32",
+    "file": "/swords/sword_32.png",
+    "source": "File 2023.png",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_33",
+    "file": "/swords/sword_33.png",
+    "source": "File 2023.png",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_34",
+    "file": "/swords/sword_34.png",
+    "source": "File 2023.png",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_35",
+    "file": "/swords/sword_35.png",
+    "source": "File 2023.png",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_36",
+    "file": "/swords/sword_36.png",
+    "source": "File 2023.png",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_37",
+    "file": "/swords/sword_37.png",
+    "source": "File 2023.png",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_38",
+    "file": "/swords/sword_38.png",
+    "source": "File 2023.png",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_39",
+    "file": "/swords/sword_39.png",
+    "source": "File 2023.png",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_40",
+    "file": "/swords/sword_40.png",
+    "source": "File 2023.png",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_41",
+    "file": "/swords/sword_41.png",
+    "source": "File 2023.png",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_42",
+    "file": "/swords/sword_42.png",
+    "source": "File 2023.png",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_43",
+    "file": "/swords/sword_43.png",
+    "source": "File 2023.png",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_44",
+    "file": "/swords/sword_44.png",
+    "source": "File 2023.png",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_45",
+    "file": "/swords/sword_45.png",
+    "source": "File 2023.png",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_46",
+    "file": "/swords/sword_46.png",
+    "source": "File 2023.png",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_47",
+    "file": "/swords/sword_47.png",
+    "source": "File 2023.png",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_48",
+    "file": "/swords/sword_48.png",
+    "source": "File 2023.png",
+    "row": 2,
+    "col": 5
+  },
+  {
+    "id": "sword_49",
+    "file": "/swords/sword_49.png",
+    "source": "File 2023.png",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_50",
+    "file": "/swords/sword_50.png",
+    "source": "File 2023.png",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_51",
+    "file": "/swords/sword_51.png",
+    "source": "File 2023.png",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_52",
+    "file": "/swords/sword_52.png",
+    "source": "File 2023.png",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_53",
+    "file": "/swords/sword_53.png",
+    "source": "File 2023.png",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_54",
+    "file": "/swords/sword_54.png",
+    "source": "File 2023.png",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_55",
+    "file": "/swords/sword_55.png",
+    "source": "File 2023.png",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_56",
+    "file": "/swords/sword_56.png",
+    "source": "File 2023.png",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_57",
+    "file": "/swords/sword_57.png",
+    "source": "File 2023.png",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_58",
+    "file": "/swords/sword_58.png",
+    "source": "File 2023.png",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_59",
+    "file": "/swords/sword_59.png",
+    "source": "File 2023.png",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_60",
+    "file": "/swords/sword_60.png",
+    "source": "File 2023.png",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_61",
+    "file": "/swords/sword_61.png",
+    "source": "File 2024.png",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_62",
+    "file": "/swords/sword_62.png",
+    "source": "File 2024.png",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_63",
+    "file": "/swords/sword_63.png",
+    "source": "File 2024.png",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_64",
+    "file": "/swords/sword_64.png",
+    "source": "File 2024.png",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_65",
+    "file": "/swords/sword_65.png",
+    "source": "File 2024.png",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_66",
+    "file": "/swords/sword_66.png",
+    "source": "File 2024.png",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_67",
+    "file": "/swords/sword_67.png",
+    "source": "File 2024.png",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_68",
+    "file": "/swords/sword_68.png",
+    "source": "File 2024.png",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_69",
+    "file": "/swords/sword_69.png",
+    "source": "File 2024.png",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_70",
+    "file": "/swords/sword_70.png",
+    "source": "File 2024.png",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_71",
+    "file": "/swords/sword_71.png",
+    "source": "File 2024.png",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_72",
+    "file": "/swords/sword_72.png",
+    "source": "File 2024.png",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_73",
+    "file": "/swords/sword_73.png",
+    "source": "File 2024.png",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_74",
+    "file": "/swords/sword_74.png",
+    "source": "File 2024.png",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_75",
+    "file": "/swords/sword_75.png",
+    "source": "File 2024.png",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_76",
+    "file": "/swords/sword_76.png",
+    "source": "File 2024.png",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_77",
+    "file": "/swords/sword_77.png",
+    "source": "File 2024.png",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_78",
+    "file": "/swords/sword_78.png",
+    "source": "File 2024.png",
+    "row": 2,
+    "col": 5
+  },
+  {
+    "id": "sword_79",
+    "file": "/swords/sword_79.png",
+    "source": "File 2024.png",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_80",
+    "file": "/swords/sword_80.png",
+    "source": "File 2024.png",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_81",
+    "file": "/swords/sword_81.png",
+    "source": "File 2024.png",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_82",
+    "file": "/swords/sword_82.png",
+    "source": "File 2024.png",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_83",
+    "file": "/swords/sword_83.png",
+    "source": "File 2024.png",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_84",
+    "file": "/swords/sword_84.png",
+    "source": "File 2024.png",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_85",
+    "file": "/swords/sword_85.png",
+    "source": "File 2024.png",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_86",
+    "file": "/swords/sword_86.png",
+    "source": "File 2024.png",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_87",
+    "file": "/swords/sword_87.png",
+    "source": "File 2024.png",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_88",
+    "file": "/swords/sword_88.png",
+    "source": "File 2024.png",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_89",
+    "file": "/swords/sword_89.png",
+    "source": "File 2024.png",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_90",
+    "file": "/swords/sword_90.png",
+    "source": "File 2024.png",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_91",
+    "file": "/swords/sword_91.png",
+    "source": "File.png",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_92",
+    "file": "/swords/sword_92.png",
+    "source": "File.png",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_93",
+    "file": "/swords/sword_93.png",
+    "source": "File.png",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_94",
+    "file": "/swords/sword_94.png",
+    "source": "File.png",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_95",
+    "file": "/swords/sword_95.png",
+    "source": "File.png",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_96",
+    "file": "/swords/sword_96.png",
+    "source": "File.png",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_97",
+    "file": "/swords/sword_97.png",
+    "source": "File.png",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_98",
+    "file": "/swords/sword_98.png",
+    "source": "File.png",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_99",
+    "file": "/swords/sword_99.png",
+    "source": "File.png",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_100",
+    "file": "/swords/sword_100.png",
+    "source": "File.png",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_101",
+    "file": "/swords/sword_101.png",
+    "source": "File.png",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_102",
+    "file": "/swords/sword_102.png",
+    "source": "File.png",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_103",
+    "file": "/swords/sword_103.png",
+    "source": "File.png",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_104",
+    "file": "/swords/sword_104.png",
+    "source": "File.png",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_105",
+    "file": "/swords/sword_105.png",
+    "source": "File.png",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_106",
+    "file": "/swords/sword_106.png",
+    "source": "File.png",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_107",
+    "file": "/swords/sword_107.png",
+    "source": "File.png",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_108",
+    "file": "/swords/sword_108.png",
+    "source": "File.png",
+    "row": 2,
+    "col": 5
+  },
+  {
+    "id": "sword_109",
+    "file": "/swords/sword_109.png",
+    "source": "File.png",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_110",
+    "file": "/swords/sword_110.png",
+    "source": "File.png",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_111",
+    "file": "/swords/sword_111.png",
+    "source": "File.png",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_112",
+    "file": "/swords/sword_112.png",
+    "source": "File.png",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_113",
+    "file": "/swords/sword_113.png",
+    "source": "File.png",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_114",
+    "file": "/swords/sword_114.png",
+    "source": "File.png",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_115",
+    "file": "/swords/sword_115.png",
+    "source": "File.png",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_116",
+    "file": "/swords/sword_116.png",
+    "source": "File.png",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_117",
+    "file": "/swords/sword_117.png",
+    "source": "File.png",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_118",
+    "file": "/swords/sword_118.png",
+    "source": "File.png",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_119",
+    "file": "/swords/sword_119.png",
+    "source": "File.png",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_120",
+    "file": "/swords/sword_120.png",
+    "source": "File.png",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_121",
+    "file": "/swords/sword_121.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_122",
+    "file": "/swords/sword_122.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_123",
+    "file": "/swords/sword_123.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_124",
+    "file": "/swords/sword_124.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_125",
+    "file": "/swords/sword_125.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_126",
+    "file": "/swords/sword_126.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_127",
+    "file": "/swords/sword_127.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_128",
+    "file": "/swords/sword_128.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_129",
+    "file": "/swords/sword_129.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_130",
+    "file": "/swords/sword_130.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_131",
+    "file": "/swords/sword_131.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_132",
+    "file": "/swords/sword_132.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_133",
+    "file": "/swords/sword_133.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_134",
+    "file": "/swords/sword_134.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_135",
+    "file": "/swords/sword_135.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_136",
+    "file": "/swords/sword_136.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_137",
+    "file": "/swords/sword_137.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_138",
+    "file": "/swords/sword_138.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 2,
+    "col": 5
+  },
+  {
+    "id": "sword_139",
+    "file": "/swords/sword_139.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_140",
+    "file": "/swords/sword_140.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_141",
+    "file": "/swords/sword_141.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_142",
+    "file": "/swords/sword_142.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_143",
+    "file": "/swords/sword_143.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_144",
+    "file": "/swords/sword_144.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_145",
+    "file": "/swords/sword_145.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_146",
+    "file": "/swords/sword_146.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_147",
+    "file": "/swords/sword_147.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_148",
+    "file": "/swords/sword_148.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_149",
+    "file": "/swords/sword_149.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_150",
+    "file": "/swords/sword_150.png",
+    "source": "Hedgys_Swordtember_2026_File.png",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_151",
+    "file": "/swords/sword_151.png",
+    "source": "SN2_SWORD",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_152",
+    "file": "/swords/sword_152.png",
+    "source": "SN2_SWORD",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_153",
+    "file": "/swords/sword_153.png",
+    "source": "SN2_SWORD",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_154",
+    "file": "/swords/sword_154.png",
+    "source": "SN2_SWORD",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_155",
+    "file": "/swords/sword_155.png",
+    "source": "SN2_SWORD",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_156",
+    "file": "/swords/sword_156.png",
+    "source": "SN2_SWORD",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_157",
+    "file": "/swords/sword_157.png",
+    "source": "SN2_SWORD",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_158",
+    "file": "/swords/sword_158.png",
+    "source": "SN2_SWORD",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_159",
+    "file": "/swords/sword_159.png",
+    "source": "SN2_SWORD",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_160",
+    "file": "/swords/sword_160.png",
+    "source": "SN2_SWORD",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_161",
+    "file": "/swords/sword_161.png",
+    "source": "SN2_SWORD",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_162",
+    "file": "/swords/sword_162.png",
+    "source": "SN2_SWORD",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_163",
+    "file": "/swords/sword_163.png",
+    "source": "SN2_SWORD",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_164",
+    "file": "/swords/sword_164.png",
+    "source": "SN2_SWORD",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_165",
+    "file": "/swords/sword_165.png",
+    "source": "SN2_SWORD",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_166",
+    "file": "/swords/sword_166.png",
+    "source": "SN2_SWORD",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_167",
+    "file": "/swords/sword_167.png",
+    "source": "SN2_SWORD",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_168",
+    "file": "/swords/sword_168.png",
+    "source": "SN2_SWORD",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_169",
+    "file": "/swords/sword_169.png",
+    "source": "SN2_SWORD",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_170",
+    "file": "/swords/sword_170.png",
+    "source": "SN2_SWORD",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_171",
+    "file": "/swords/sword_171.png",
+    "source": "SN2_SWORD",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_172",
+    "file": "/swords/sword_172.png",
+    "source": "SN2_SWORD",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_173",
+    "file": "/swords/sword_173.png",
+    "source": "SN2_SWORD",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_174",
+    "file": "/swords/sword_174.png",
+    "source": "SN2_SWORD",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_175",
+    "file": "/swords/sword_175.png",
+    "source": "SN2_SWORD",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_176",
+    "file": "/swords/sword_176.png",
+    "source": "SN2_SWORD",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_177",
+    "file": "/swords/sword_177.png",
+    "source": "SN2_SWORD",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_178",
+    "file": "/swords/sword_178.png",
+    "source": "SN2_SWORD",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_179",
+    "file": "/swords/sword_179.png",
+    "source": "SN2_SWORD",
+    "row": 5,
+    "col": 0
+  },
+  {
+    "id": "sword_180",
+    "file": "/swords/sword_180.png",
+    "source": "SN2_SWORD",
+    "row": 5,
+    "col": 1
+  },
+  {
+    "id": "sword_181",
+    "file": "/swords/sword_181.png",
+    "source": "SN2_SWORD",
+    "row": 5,
+    "col": 2
+  },
+  {
+    "id": "sword_182",
+    "file": "/swords/sword_182.png",
+    "source": "SN2_SWORD",
+    "row": 5,
+    "col": 3
+  },
+  {
+    "id": "sword_183",
+    "file": "/swords/sword_183.png",
+    "source": "SN2_SWORD",
+    "row": 5,
+    "col": 4
+  },
+  {
+    "id": "sword_184",
+    "file": "/swords/sword_184.png",
+    "source": "SN2_SWORD",
+    "row": 5,
+    "col": 5
+  },
+  {
+    "id": "sword_185",
+    "file": "/swords/sword_185.png",
+    "source": "SN2_SWORD",
+    "row": 7,
+    "col": 0
+  },
+  {
+    "id": "sword_186",
+    "file": "/swords/sword_186.png",
+    "source": "SN2_SWORD",
+    "row": 7,
+    "col": 1
+  },
+  {
+    "id": "sword_187",
+    "file": "/swords/sword_187.png",
+    "source": "SN2_SWORD",
+    "row": 7,
+    "col": 2
+  },
+  {
+    "id": "sword_188",
+    "file": "/swords/sword_188.png",
+    "source": "SN2_SWORD",
+    "row": 7,
+    "col": 3
+  },
+  {
+    "id": "sword_189",
+    "file": "/swords/sword_189.png",
+    "source": "SN2_SWORD",
+    "row": 7,
+    "col": 4
+  },
+  {
+    "id": "sword_190",
+    "file": "/swords/sword_190.png",
+    "source": "SN2_SWORD",
+    "row": 7,
+    "col": 5
+  },
+  {
+    "id": "sword_191",
+    "file": "/swords/sword_191.png",
+    "source": "SN2_AXE",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_192",
+    "file": "/swords/sword_192.png",
+    "source": "SN2_AXE",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_193",
+    "file": "/swords/sword_193.png",
+    "source": "SN2_AXE",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_194",
+    "file": "/swords/sword_194.png",
+    "source": "SN2_AXE",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_195",
+    "file": "/swords/sword_195.png",
+    "source": "SN2_AXE",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_196",
+    "file": "/swords/sword_196.png",
+    "source": "SN2_AXE",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_197",
+    "file": "/swords/sword_197.png",
+    "source": "SN2_AXE",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_198",
+    "file": "/swords/sword_198.png",
+    "source": "SN2_AXE",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_199",
+    "file": "/swords/sword_199.png",
+    "source": "SN2_AXE",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_200",
+    "file": "/swords/sword_200.png",
+    "source": "SN2_AXE",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_201",
+    "file": "/swords/sword_201.png",
+    "source": "SN2_AXE",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_202",
+    "file": "/swords/sword_202.png",
+    "source": "SN2_AXE",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_203",
+    "file": "/swords/sword_203.png",
+    "source": "SN2_AXE",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_204",
+    "file": "/swords/sword_204.png",
+    "source": "SN2_AXE",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_205",
+    "file": "/swords/sword_205.png",
+    "source": "SN2_AXE",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_206",
+    "file": "/swords/sword_206.png",
+    "source": "SN2_AXE",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_207",
+    "file": "/swords/sword_207.png",
+    "source": "SN2_AXE",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_208",
+    "file": "/swords/sword_208.png",
+    "source": "SN2_AXE",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_209",
+    "file": "/swords/sword_209.png",
+    "source": "SN2_AXE",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_210",
+    "file": "/swords/sword_210.png",
+    "source": "SN2_AXE",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_211",
+    "file": "/swords/sword_211.png",
+    "source": "SN2_AXE",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_212",
+    "file": "/swords/sword_212.png",
+    "source": "SN2_AXE",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_213",
+    "file": "/swords/sword_213.png",
+    "source": "SN2_AXE",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_214",
+    "file": "/swords/sword_214.png",
+    "source": "SN2_AXE",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_215",
+    "file": "/swords/sword_215.png",
+    "source": "SN2_AXE",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_216",
+    "file": "/swords/sword_216.png",
+    "source": "SN2_AXE",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_217",
+    "file": "/swords/sword_217.png",
+    "source": "SN2_AXE",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_218",
+    "file": "/swords/sword_218.png",
+    "source": "SN2_AXE",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_219",
+    "file": "/swords/sword_219.png",
+    "source": "SN2_AXE",
+    "row": 5,
+    "col": 0
+  },
+  {
+    "id": "sword_220",
+    "file": "/swords/sword_220.png",
+    "source": "SN2_AXE",
+    "row": 5,
+    "col": 1
+  },
+  {
+    "id": "sword_221",
+    "file": "/swords/sword_221.png",
+    "source": "SN2_AXE",
+    "row": 5,
+    "col": 2
+  },
+  {
+    "id": "sword_222",
+    "file": "/swords/sword_222.png",
+    "source": "SN2_AXE",
+    "row": 5,
+    "col": 3
+  },
+  {
+    "id": "sword_223",
+    "file": "/swords/sword_223.png",
+    "source": "SN2_AXE",
+    "row": 5,
+    "col": 4
+  },
+  {
+    "id": "sword_224",
+    "file": "/swords/sword_224.png",
+    "source": "SN2_AXE",
+    "row": 5,
+    "col": 5
+  },
+  {
+    "id": "sword_225",
+    "file": "/swords/sword_225.png",
+    "source": "SN2_AXE",
+    "row": 7,
+    "col": 0
+  },
+  {
+    "id": "sword_226",
+    "file": "/swords/sword_226.png",
+    "source": "SN2_AXE",
+    "row": 7,
+    "col": 1
+  },
+  {
+    "id": "sword_227",
+    "file": "/swords/sword_227.png",
+    "source": "SN2_AXE",
+    "row": 7,
+    "col": 2
+  },
+  {
+    "id": "sword_228",
+    "file": "/swords/sword_228.png",
+    "source": "SN2_AXE",
+    "row": 7,
+    "col": 3
+  },
+  {
+    "id": "sword_229",
+    "file": "/swords/sword_229.png",
+    "source": "SN2_AXE",
+    "row": 7,
+    "col": 4
+  },
+  {
+    "id": "sword_230",
+    "file": "/swords/sword_230.png",
+    "source": "SN2_AXE",
+    "row": 7,
+    "col": 5
+  },
+  {
+    "id": "sword_231",
+    "file": "/swords/sword_231.png",
+    "source": "SN2_SPEAR",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_232",
+    "file": "/swords/sword_232.png",
+    "source": "SN2_SPEAR",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_233",
+    "file": "/swords/sword_233.png",
+    "source": "SN2_SPEAR",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_234",
+    "file": "/swords/sword_234.png",
+    "source": "SN2_SPEAR",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_235",
+    "file": "/swords/sword_235.png",
+    "source": "SN2_SPEAR",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_236",
+    "file": "/swords/sword_236.png",
+    "source": "SN2_SPEAR",
+    "row": 0,
+    "col": 5
+  },
+  {
+    "id": "sword_237",
+    "file": "/swords/sword_237.png",
+    "source": "SN2_SPEAR",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_238",
+    "file": "/swords/sword_238.png",
+    "source": "SN2_SPEAR",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_239",
+    "file": "/swords/sword_239.png",
+    "source": "SN2_SPEAR",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_240",
+    "file": "/swords/sword_240.png",
+    "source": "SN2_SPEAR",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_241",
+    "file": "/swords/sword_241.png",
+    "source": "SN2_SPEAR",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_242",
+    "file": "/swords/sword_242.png",
+    "source": "SN2_SPEAR",
+    "row": 1,
+    "col": 5
+  },
+  {
+    "id": "sword_243",
+    "file": "/swords/sword_243.png",
+    "source": "SN2_SPEAR",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_244",
+    "file": "/swords/sword_244.png",
+    "source": "SN2_SPEAR",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_245",
+    "file": "/swords/sword_245.png",
+    "source": "SN2_SPEAR",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_246",
+    "file": "/swords/sword_246.png",
+    "source": "SN2_SPEAR",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_247",
+    "file": "/swords/sword_247.png",
+    "source": "SN2_SPEAR",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_248",
+    "file": "/swords/sword_248.png",
+    "source": "SN2_SPEAR",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_249",
+    "file": "/swords/sword_249.png",
+    "source": "SN2_SPEAR",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_250",
+    "file": "/swords/sword_250.png",
+    "source": "SN2_SPEAR",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_251",
+    "file": "/swords/sword_251.png",
+    "source": "SN2_SPEAR",
+    "row": 3,
+    "col": 4
+  },
+  {
+    "id": "sword_252",
+    "file": "/swords/sword_252.png",
+    "source": "SN2_SPEAR",
+    "row": 3,
+    "col": 5
+  },
+  {
+    "id": "sword_253",
+    "file": "/swords/sword_253.png",
+    "source": "SN2_SPEAR",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_254",
+    "file": "/swords/sword_254.png",
+    "source": "SN2_SPEAR",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_255",
+    "file": "/swords/sword_255.png",
+    "source": "SN2_SPEAR",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_256",
+    "file": "/swords/sword_256.png",
+    "source": "SN2_SPEAR",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_257",
+    "file": "/swords/sword_257.png",
+    "source": "SN2_SPEAR",
+    "row": 4,
+    "col": 4
+  },
+  {
+    "id": "sword_258",
+    "file": "/swords/sword_258.png",
+    "source": "SN2_SPEAR",
+    "row": 4,
+    "col": 5
+  },
+  {
+    "id": "sword_259",
+    "file": "/swords/sword_259.png",
+    "source": "SN2_SPEAR",
+    "row": 5,
+    "col": 0
+  },
+  {
+    "id": "sword_260",
+    "file": "/swords/sword_260.png",
+    "source": "SN2_SPEAR",
+    "row": 5,
+    "col": 1
+  },
+  {
+    "id": "sword_261",
+    "file": "/swords/sword_261.png",
+    "source": "SN2_SPEAR",
+    "row": 5,
+    "col": 2
+  },
+  {
+    "id": "sword_262",
+    "file": "/swords/sword_262.png",
+    "source": "SN2_SPEAR",
+    "row": 5,
+    "col": 3
+  },
+  {
+    "id": "sword_263",
+    "file": "/swords/sword_263.png",
+    "source": "SN2_SPEAR",
+    "row": 5,
+    "col": 4
+  },
+  {
+    "id": "sword_264",
+    "file": "/swords/sword_264.png",
+    "source": "SN2_SPEAR",
+    "row": 5,
+    "col": 5
+  },
+  {
+    "id": "sword_265",
+    "file": "/swords/sword_265.png",
+    "source": "SN2_SPEAR",
+    "row": 7,
+    "col": 0
+  },
+  {
+    "id": "sword_266",
+    "file": "/swords/sword_266.png",
+    "source": "SN2_SPEAR",
+    "row": 7,
+    "col": 1
+  },
+  {
+    "id": "sword_267",
+    "file": "/swords/sword_267.png",
+    "source": "SN2_SPEAR",
+    "row": 7,
+    "col": 2
+  },
+  {
+    "id": "sword_268",
+    "file": "/swords/sword_268.png",
+    "source": "SN2_SPEAR",
+    "row": 7,
+    "col": 3
+  },
+  {
+    "id": "sword_269",
+    "file": "/swords/sword_269.png",
+    "source": "SN2_SPEAR",
+    "row": 7,
+    "col": 4
+  },
+  {
+    "id": "sword_270",
+    "file": "/swords/sword_270.png",
+    "source": "SN2_SPEAR",
+    "row": 7,
+    "col": 5
+  },
+  {
+    "id": "sword_271",
+    "file": "/swords/sword_271.png",
+    "source": "SN3_SWORD",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_272",
+    "file": "/swords/sword_272.png",
+    "source": "SN3_SWORD",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_273",
+    "file": "/swords/sword_273.png",
+    "source": "SN3_SWORD",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_274",
+    "file": "/swords/sword_274.png",
+    "source": "SN3_SWORD",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_275",
+    "file": "/swords/sword_275.png",
+    "source": "SN3_SWORD",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_276",
+    "file": "/swords/sword_276.png",
+    "source": "SN3_SWORD",
+    "row": 5,
+    "col": 0
+  },
+  {
+    "id": "sword_277",
+    "file": "/swords/sword_277.png",
+    "source": "SN3_SWORD",
+    "row": 6,
+    "col": 0
+  },
+  {
+    "id": "sword_278",
+    "file": "/swords/sword_278.png",
+    "source": "SN3_SWORD",
+    "row": 7,
+    "col": 0
+  },
+  {
+    "id": "sword_279",
+    "file": "/swords/sword_279.png",
+    "source": "SN3_SWORD",
+    "row": 8,
+    "col": 0
+  },
+  {
+    "id": "sword_280",
+    "file": "/swords/sword_280.png",
+    "source": "SN3_SWORD",
+    "row": 9,
+    "col": 0
+  },
+  {
+    "id": "sword_281",
+    "file": "/swords/sword_281.png",
+    "source": "SN3_SWORD",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_282",
+    "file": "/swords/sword_282.png",
+    "source": "SN3_SWORD",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_283",
+    "file": "/swords/sword_283.png",
+    "source": "SN3_SWORD",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_284",
+    "file": "/swords/sword_284.png",
+    "source": "SN3_SWORD",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_285",
+    "file": "/swords/sword_285.png",
+    "source": "SN3_SWORD",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_286",
+    "file": "/swords/sword_286.png",
+    "source": "SN3_SWORD",
+    "row": 5,
+    "col": 1
+  },
+  {
+    "id": "sword_287",
+    "file": "/swords/sword_287.png",
+    "source": "SN3_SWORD",
+    "row": 6,
+    "col": 1
+  },
+  {
+    "id": "sword_288",
+    "file": "/swords/sword_288.png",
+    "source": "SN3_SWORD",
+    "row": 7,
+    "col": 1
+  },
+  {
+    "id": "sword_289",
+    "file": "/swords/sword_289.png",
+    "source": "SN3_SWORD",
+    "row": 8,
+    "col": 1
+  },
+  {
+    "id": "sword_290",
+    "file": "/swords/sword_290.png",
+    "source": "SN3_SWORD",
+    "row": 9,
+    "col": 1
+  },
+  {
+    "id": "sword_291",
+    "file": "/swords/sword_291.png",
+    "source": "SN3_SWORD",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_292",
+    "file": "/swords/sword_292.png",
+    "source": "SN3_SWORD",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_293",
+    "file": "/swords/sword_293.png",
+    "source": "SN3_SWORD",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_294",
+    "file": "/swords/sword_294.png",
+    "source": "SN3_SWORD",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_295",
+    "file": "/swords/sword_295.png",
+    "source": "SN3_SWORD",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_296",
+    "file": "/swords/sword_296.png",
+    "source": "SN3_SWORD",
+    "row": 5,
+    "col": 2
+  },
+  {
+    "id": "sword_297",
+    "file": "/swords/sword_297.png",
+    "source": "SN3_SWORD",
+    "row": 6,
+    "col": 2
+  },
+  {
+    "id": "sword_298",
+    "file": "/swords/sword_298.png",
+    "source": "SN3_SWORD",
+    "row": 7,
+    "col": 2
+  },
+  {
+    "id": "sword_299",
+    "file": "/swords/sword_299.png",
+    "source": "SN3_SWORD",
+    "row": 8,
+    "col": 2
+  },
+  {
+    "id": "sword_300",
+    "file": "/swords/sword_300.png",
+    "source": "SN3_SWORD",
+    "row": 9,
+    "col": 2
+  },
+  {
+    "id": "sword_301",
+    "file": "/swords/sword_301.png",
+    "source": "SN3_SWORD",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_302",
+    "file": "/swords/sword_302.png",
+    "source": "SN3_SWORD",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_303",
+    "file": "/swords/sword_303.png",
+    "source": "SN3_SWORD",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_304",
+    "file": "/swords/sword_304.png",
+    "source": "SN3_SWORD",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_305",
+    "file": "/swords/sword_305.png",
+    "source": "SN3_SWORD",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_306",
+    "file": "/swords/sword_306.png",
+    "source": "SN3_SWORD",
+    "row": 5,
+    "col": 3
+  },
+  {
+    "id": "sword_307",
+    "file": "/swords/sword_307.png",
+    "source": "SN3_SWORD",
+    "row": 6,
+    "col": 3
+  },
+  {
+    "id": "sword_308",
+    "file": "/swords/sword_308.png",
+    "source": "SN3_SWORD",
+    "row": 7,
+    "col": 3
+  },
+  {
+    "id": "sword_309",
+    "file": "/swords/sword_309.png",
+    "source": "SN3_SWORD",
+    "row": 0,
+    "col": 4
+  },
+  {
+    "id": "sword_310",
+    "file": "/swords/sword_310.png",
+    "source": "SN3_SWORD",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_311",
+    "file": "/swords/sword_311.png",
+    "source": "SN3_AXE",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_312",
+    "file": "/swords/sword_312.png",
+    "source": "SN3_AXE",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_313",
+    "file": "/swords/sword_313.png",
+    "source": "SN3_AXE",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_314",
+    "file": "/swords/sword_314.png",
+    "source": "SN3_AXE",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_315",
+    "file": "/swords/sword_315.png",
+    "source": "SN3_AXE",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_316",
+    "file": "/swords/sword_316.png",
+    "source": "SN3_AXE",
+    "row": 5,
+    "col": 0
+  },
+  {
+    "id": "sword_317",
+    "file": "/swords/sword_317.png",
+    "source": "SN3_AXE",
+    "row": 6,
+    "col": 0
+  },
+  {
+    "id": "sword_318",
+    "file": "/swords/sword_318.png",
+    "source": "SN3_AXE",
+    "row": 7,
+    "col": 0
+  },
+  {
+    "id": "sword_319",
+    "file": "/swords/sword_319.png",
+    "source": "SN3_AXE",
+    "row": 8,
+    "col": 0
+  },
+  {
+    "id": "sword_320",
+    "file": "/swords/sword_320.png",
+    "source": "SN3_AXE",
+    "row": 9,
+    "col": 0
+  },
+  {
+    "id": "sword_321",
+    "file": "/swords/sword_321.png",
+    "source": "SN3_AXE",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_322",
+    "file": "/swords/sword_322.png",
+    "source": "SN3_AXE",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_323",
+    "file": "/swords/sword_323.png",
+    "source": "SN3_AXE",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_324",
+    "file": "/swords/sword_324.png",
+    "source": "SN3_AXE",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_325",
+    "file": "/swords/sword_325.png",
+    "source": "SN3_AXE",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_326",
+    "file": "/swords/sword_326.png",
+    "source": "SN3_AXE",
+    "row": 5,
+    "col": 1
+  },
+  {
+    "id": "sword_327",
+    "file": "/swords/sword_327.png",
+    "source": "SN3_AXE",
+    "row": 6,
+    "col": 1
+  },
+  {
+    "id": "sword_328",
+    "file": "/swords/sword_328.png",
+    "source": "SN3_AXE",
+    "row": 7,
+    "col": 1
+  },
+  {
+    "id": "sword_329",
+    "file": "/swords/sword_329.png",
+    "source": "SN3_AXE",
+    "row": 8,
+    "col": 1
+  },
+  {
+    "id": "sword_330",
+    "file": "/swords/sword_330.png",
+    "source": "SN3_AXE",
+    "row": 9,
+    "col": 1
+  },
+  {
+    "id": "sword_331",
+    "file": "/swords/sword_331.png",
+    "source": "SN3_AXE",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_332",
+    "file": "/swords/sword_332.png",
+    "source": "SN3_AXE",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_333",
+    "file": "/swords/sword_333.png",
+    "source": "SN3_AXE",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_334",
+    "file": "/swords/sword_334.png",
+    "source": "SN3_AXE",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_335",
+    "file": "/swords/sword_335.png",
+    "source": "SN3_AXE",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_336",
+    "file": "/swords/sword_336.png",
+    "source": "SN3_AXE",
+    "row": 5,
+    "col": 2
+  },
+  {
+    "id": "sword_337",
+    "file": "/swords/sword_337.png",
+    "source": "SN3_AXE",
+    "row": 6,
+    "col": 2
+  },
+  {
+    "id": "sword_338",
+    "file": "/swords/sword_338.png",
+    "source": "SN3_AXE",
+    "row": 7,
+    "col": 2
+  },
+  {
+    "id": "sword_339",
+    "file": "/swords/sword_339.png",
+    "source": "SN3_AXE",
+    "row": 8,
+    "col": 2
+  },
+  {
+    "id": "sword_340",
+    "file": "/swords/sword_340.png",
+    "source": "SN3_AXE",
+    "row": 9,
+    "col": 2
+  },
+  {
+    "id": "sword_341",
+    "file": "/swords/sword_341.png",
+    "source": "SN3_AXE",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_342",
+    "file": "/swords/sword_342.png",
+    "source": "SN3_AXE",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_343",
+    "file": "/swords/sword_343.png",
+    "source": "SN3_AXE",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_344",
+    "file": "/swords/sword_344.png",
+    "source": "SN3_AXE",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_345",
+    "file": "/swords/sword_345.png",
+    "source": "SN3_AXE",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_346",
+    "file": "/swords/sword_346.png",
+    "source": "SN3_AXE",
+    "row": 5,
+    "col": 3
+  },
+  {
+    "id": "sword_347",
+    "file": "/swords/sword_347.png",
+    "source": "SN3_AXE",
+    "row": 6,
+    "col": 3
+  },
+  {
+    "id": "sword_348",
+    "file": "/swords/sword_348.png",
+    "source": "SN3_AXE",
+    "row": 7,
+    "col": 3
+  },
+  {
+    "id": "sword_349",
+    "file": "/swords/sword_349.png",
+    "source": "SN3_AXE",
+    "row": 8,
+    "col": 3
+  },
+  {
+    "id": "sword_350",
+    "file": "/swords/sword_350.png",
+    "source": "SN3_AXE",
+    "row": 9,
+    "col": 3
+  },
+  {
+    "id": "sword_351",
+    "file": "/swords/sword_351.png",
+    "source": "SN3_SPEAR",
+    "row": 0,
+    "col": 0
+  },
+  {
+    "id": "sword_352",
+    "file": "/swords/sword_352.png",
+    "source": "SN3_SPEAR",
+    "row": 1,
+    "col": 0
+  },
+  {
+    "id": "sword_353",
+    "file": "/swords/sword_353.png",
+    "source": "SN3_SPEAR",
+    "row": 2,
+    "col": 0
+  },
+  {
+    "id": "sword_354",
+    "file": "/swords/sword_354.png",
+    "source": "SN3_SPEAR",
+    "row": 3,
+    "col": 0
+  },
+  {
+    "id": "sword_355",
+    "file": "/swords/sword_355.png",
+    "source": "SN3_SPEAR",
+    "row": 4,
+    "col": 0
+  },
+  {
+    "id": "sword_356",
+    "file": "/swords/sword_356.png",
+    "source": "SN3_SPEAR",
+    "row": 5,
+    "col": 0
+  },
+  {
+    "id": "sword_357",
+    "file": "/swords/sword_357.png",
+    "source": "SN3_SPEAR",
+    "row": 6,
+    "col": 0
+  },
+  {
+    "id": "sword_358",
+    "file": "/swords/sword_358.png",
+    "source": "SN3_SPEAR",
+    "row": 7,
+    "col": 0
+  },
+  {
+    "id": "sword_359",
+    "file": "/swords/sword_359.png",
+    "source": "SN3_SPEAR",
+    "row": 8,
+    "col": 0
+  },
+  {
+    "id": "sword_360",
+    "file": "/swords/sword_360.png",
+    "source": "SN3_SPEAR",
+    "row": 9,
+    "col": 0
+  },
+  {
+    "id": "sword_361",
+    "file": "/swords/sword_361.png",
+    "source": "SN3_SPEAR",
+    "row": 0,
+    "col": 1
+  },
+  {
+    "id": "sword_362",
+    "file": "/swords/sword_362.png",
+    "source": "SN3_SPEAR",
+    "row": 1,
+    "col": 1
+  },
+  {
+    "id": "sword_363",
+    "file": "/swords/sword_363.png",
+    "source": "SN3_SPEAR",
+    "row": 2,
+    "col": 1
+  },
+  {
+    "id": "sword_364",
+    "file": "/swords/sword_364.png",
+    "source": "SN3_SPEAR",
+    "row": 3,
+    "col": 1
+  },
+  {
+    "id": "sword_365",
+    "file": "/swords/sword_365.png",
+    "source": "SN3_SPEAR",
+    "row": 4,
+    "col": 1
+  },
+  {
+    "id": "sword_366",
+    "file": "/swords/sword_366.png",
+    "source": "SN3_SPEAR",
+    "row": 5,
+    "col": 1
+  },
+  {
+    "id": "sword_367",
+    "file": "/swords/sword_367.png",
+    "source": "SN3_SPEAR",
+    "row": 6,
+    "col": 1
+  },
+  {
+    "id": "sword_368",
+    "file": "/swords/sword_368.png",
+    "source": "SN3_SPEAR",
+    "row": 7,
+    "col": 1
+  },
+  {
+    "id": "sword_369",
+    "file": "/swords/sword_369.png",
+    "source": "SN3_SPEAR",
+    "row": 8,
+    "col": 1
+  },
+  {
+    "id": "sword_370",
+    "file": "/swords/sword_370.png",
+    "source": "SN3_SPEAR",
+    "row": 9,
+    "col": 1
+  },
+  {
+    "id": "sword_371",
+    "file": "/swords/sword_371.png",
+    "source": "SN3_SPEAR",
+    "row": 0,
+    "col": 2
+  },
+  {
+    "id": "sword_372",
+    "file": "/swords/sword_372.png",
+    "source": "SN3_SPEAR",
+    "row": 1,
+    "col": 2
+  },
+  {
+    "id": "sword_373",
+    "file": "/swords/sword_373.png",
+    "source": "SN3_SPEAR",
+    "row": 2,
+    "col": 2
+  },
+  {
+    "id": "sword_374",
+    "file": "/swords/sword_374.png",
+    "source": "SN3_SPEAR",
+    "row": 3,
+    "col": 2
+  },
+  {
+    "id": "sword_375",
+    "file": "/swords/sword_375.png",
+    "source": "SN3_SPEAR",
+    "row": 4,
+    "col": 2
+  },
+  {
+    "id": "sword_376",
+    "file": "/swords/sword_376.png",
+    "source": "SN3_SPEAR",
+    "row": 5,
+    "col": 2
+  },
+  {
+    "id": "sword_377",
+    "file": "/swords/sword_377.png",
+    "source": "SN3_SPEAR",
+    "row": 6,
+    "col": 2
+  },
+  {
+    "id": "sword_378",
+    "file": "/swords/sword_378.png",
+    "source": "SN3_SPEAR",
+    "row": 7,
+    "col": 2
+  },
+  {
+    "id": "sword_379",
+    "file": "/swords/sword_379.png",
+    "source": "SN3_SPEAR",
+    "row": 8,
+    "col": 2
+  },
+  {
+    "id": "sword_380",
+    "file": "/swords/sword_380.png",
+    "source": "SN3_SPEAR",
+    "row": 9,
+    "col": 2
+  },
+  {
+    "id": "sword_381",
+    "file": "/swords/sword_381.png",
+    "source": "SN3_SPEAR",
+    "row": 0,
+    "col": 3
+  },
+  {
+    "id": "sword_382",
+    "file": "/swords/sword_382.png",
+    "source": "SN3_SPEAR",
+    "row": 1,
+    "col": 3
+  },
+  {
+    "id": "sword_383",
+    "file": "/swords/sword_383.png",
+    "source": "SN3_SPEAR",
+    "row": 2,
+    "col": 3
+  },
+  {
+    "id": "sword_384",
+    "file": "/swords/sword_384.png",
+    "source": "SN3_SPEAR",
+    "row": 3,
+    "col": 3
+  },
+  {
+    "id": "sword_385",
+    "file": "/swords/sword_385.png",
+    "source": "SN3_SPEAR",
+    "row": 4,
+    "col": 3
+  },
+  {
+    "id": "sword_386",
+    "file": "/swords/sword_386.png",
+    "source": "SN3_SPEAR",
+    "row": 5,
+    "col": 3
+  },
+  {
+    "id": "sword_387",
+    "file": "/swords/sword_387.png",
+    "source": "SN3_SPEAR",
+    "row": 6,
+    "col": 3
+  },
+  {
+    "id": "sword_388",
+    "file": "/swords/sword_388.png",
+    "source": "SN3_SPEAR",
+    "row": 1,
+    "col": 4
+  },
+  {
+    "id": "sword_389",
+    "file": "/swords/sword_389.png",
+    "source": "SN3_SPEAR",
+    "row": 2,
+    "col": 4
+  },
+  {
+    "id": "sword_390",
+    "file": "/swords/sword_390.png",
+    "source": "SN3_SPEAR",
+    "row": 3,
+    "col": 4
+  }
+]

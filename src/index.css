@@ -1,0 +1,702 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    background-color: #020617;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slowSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes sakuraDrift {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  15% { opacity: 0.8; }
+  85% { opacity: 0.8; }
+  100% { transform: translate(-80px, 120px) rotate(180deg); opacity: 0; }
+}
+
+@keyframes fairyGlow {
+  0%, 100% { opacity: 0.3; transform: scale(0.9) translateY(0); }
+  50% { opacity: 0.85; transform: scale(1.1) translateY(-8px); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-slow-spin {
+  animation: slowSpin 24s linear infinite;
+}
+
+.animate-slow-spin-rev {
+  animation: slowSpinReverse 32s linear infinite;
+}
+
+.animate-sakura-1 {
+  animation: sakuraDrift 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-sakura-2 {
+  animation: sakuraDrift 11s cubic-bezier(0.4, 0, 0.2, 1) infinite 3s;
+}
+
+.animate-fairy-glow {
+  animation: fairyGlow 3s ease-in-out infinite;
+}
+
+/* ========================================================= */
+/* ATMOSPHERIC JRPG OVERWORLD MIST & PYREFLIES (FFBE STYLE)   */
+/* ========================================================= */
+@keyframes mistDrift1 {
+  0% { transform: translateX(-120px) translateY(0); }
+  50% { transform: translateX(80px) translateY(-12px); }
+  100% { transform: translateX(260px) translateY(0); }
+}
+
+@keyframes mistDrift2 {
+  0% { transform: translateX(180px) translateY(-8px); }
+  50% { transform: translateX(-40px) translateY(8px); }
+  100% { transform: translateX(-220px) translateY(-8px); }
+}
+
+@keyframes pyreflyFloat {
+  0% { transform: translate(0, 0) scale(0.7); opacity: 0; }
+  25% { opacity: 0.95; }
+  60% { transform: translate(30px, -45px) scale(1.15); opacity: 0.9; }
+  85% { opacity: 0.65; }
+  100% { transform: translate(60px, -90px) scale(0.6); opacity: 0; }
+}
+
+.animate-mist-1 {
+  animation: mistDrift1 32s ease-in-out infinite alternate;
+}
+
+.animate-mist-2 {
+  animation: mistDrift2 40s ease-in-out infinite alternate;
+}
+
+.animate-pyrefly-float {
+  animation: pyreflyFloat 5.5s ease-in-out infinite;
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at center, transparent 38%, rgba(2, 6, 23, 0.5) 75%, rgba(2, 6, 23, 0.92) 100%);
+}
+
+/* ========================================================= */
+/* WEAPON ATTACK & ELEMENTAL STRIKE ANIMATIONS               */
+/* ========================================================= */
+@keyframes weaponSlashFly {
+  0% {
+    opacity: 0;
+    transform: translate(14px, -12px) rotate(-45deg) scale(0.85);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(4px, -4px) rotate(-15deg) scale(1.2);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0px, 0px) rotate(15deg) scale(1.35);
+  }
+  75% {
+    opacity: 0.95;
+    transform: translate(-6px, 6px) rotate(35deg) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-12px, 12px) rotate(50deg) scale(0.8);
+  }
+}
+
+@keyframes weaponUltSlashFly {
+  0% {
+    opacity: 0;
+    transform: translate(18px, -14px) rotate(-55deg) scale(1.1);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(5px, -4px) rotate(-15deg) scale(1.6);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(0px, 0px) rotate(20deg) scale(1.85);
+  }
+  80% {
+    opacity: 0.95;
+    transform: translate(-8px, 8px) rotate(45deg) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-16px, 14px) rotate(65deg) scale(1.0);
+  }
+}
+
+@keyframes elementalBladeArc {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-35deg);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.2) rotate(10deg);
+  }
+  70% {
+    opacity: 0.9;
+    transform: scale(1.35) rotate(35deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) rotate(60deg);
+  }
+}
+
+@keyframes bossHitShudder {
+  0% { transform: translateX(0); filter: brightness(1); }
+  25% { transform: translateX(-4px); filter: brightness(1.5); }
+  60% { transform: translateX(2px); filter: brightness(1.2); }
+  100% { transform: translateX(0); filter: brightness(1); }
+}
+
+@keyframes bossClawSlash {
+  0% {
+    opacity: 0;
+    transform: scale(0.45) rotate(-25deg);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.15) rotate(0deg);
+  }
+  65% {
+    opacity: 0.95;
+    transform: scale(1.05) rotate(10deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25) rotate(20deg);
+  }
+}
+
+@keyframes hunterHitShudder {
+  0% {
+    transform: translate(0, 0) scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    transform: translate(7px, -2px) scale(0.95);
+    filter: brightness(2.2) drop-shadow(0 0 10px rgba(239, 68, 68, 0.9));
+  }
+  50% {
+    transform: translate(-3px, 1px) scale(0.98);
+    filter: brightness(1.6);
+  }
+  75% {
+    transform: translate(2px, 0) scale(1);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    filter: brightness(1);
+  }
+}
+
+.animate-weapon-slash {
+  animation: weaponSlashFly 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-weapon-ult-slash {
+  animation: weaponUltSlashFly 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-elemental-arc {
+  animation: elementalBladeArc 0.38s ease-out forwards;
+}
+
+.animate-boss-hit {
+  animation: bossHitShudder 0.22s ease-out;
+}
+
+.animate-boss-claw {
+  animation: bossClawSlash 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-hunter-hit {
+  animation: hunterHitShudder 0.28s ease-out;
+}
+
+/* ============================================================== */
+/* SPRITECAST & PVFX ANIMATIONS (Sunghwan0112/spritecast inspired)*/
+/* ============================================================== */
+@keyframes spritecastCrit {
+  0% { transform: scale(0.65) rotate(-6deg); opacity: 0; filter: brightness(2.5); }
+  25% { transform: scale(1.3) rotate(0deg); opacity: 1; filter: brightness(1.8); }
+  60% { transform: scale(1.05) rotate(3deg); opacity: 0.95; filter: brightness(1.2); }
+  100% { transform: scale(1.2) rotate(6deg); opacity: 0; filter: brightness(1); }
+}
+
+@keyframes spritecastShockwave {
+  0% { transform: scale(0.3); opacity: 0; }
+  30% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes spritecastStarburst {
+  0% { transform: scale(0.2) rotate(-15deg); opacity: 0; }
+  35% { transform: scale(1.25) rotate(0deg); opacity: 1; }
+  100% { transform: scale(1.4) rotate(10deg); opacity: 0; }
+}
+
+@keyframes spritecastSpark {
+  0% { transform: scale(0.3); opacity: 0; filter: brightness(2); }
+  30% { transform: scale(1.2); opacity: 1; filter: brightness(1.6); }
+  100% { transform: scale(1.35); opacity: 0; filter: brightness(1); }
+}
+
+@keyframes spritecastGuard {
+  0% { transform: translateX(12px) scale(0.7); opacity: 0; }
+  30% { transform: translateX(-4px) scale(1.1); opacity: 1; }
+  70% { transform: translateX(0) scale(1.02); opacity: 0.9; }
+  100% { transform: translateX(2px) scale(1.05); opacity: 0; }
+}
+
+@keyframes spritecastSlam {
+  0% { transform: scale(0.4) translateY(-10px); opacity: 0; }
+  35% { transform: scale(1.1) translateY(0); opacity: 1; }
+  100% { transform: scale(1.35) translateY(4px); opacity: 0; }
+}
+
+@keyframes screenJolt {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-4px, 3px); }
+  40% { transform: translate(4px, -3px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-spritecast-crit {
+  animation: spritecastCrit 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-spritecast-shockwave {
+  animation: spritecastShockwave 0.48s ease-out forwards;
+}
+
+.animate-spritecast-starburst {
+  animation: spritecastStarburst 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-spritecast-spark {
+  animation: spritecastSpark 0.28s ease-out forwards;
+}
+
+.animate-spritecast-guard {
+  animation: spritecastGuard 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-spritecast-slam {
+  animation: spritecastSlam 0.45s ease-out forwards;
+}
+
+.animate-screen-jolt {
+  animation: screenJolt 0.18s ease-in-out;
+}
+
+/* Atmospheric Ambient Particles (SpriteCast ambient/ash, leaf, snow, motes) */
+@keyframes spritecastFloatUp {
+  0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+  20% { opacity: 0.9; }
+  50% { transform: translateY(-40px) translateX(12px); opacity: 0.8; }
+  80% { opacity: 0.5; }
+  100% { transform: translateY(-90px) translateX(-8px); opacity: 0; }
+}
+
+@keyframes spritecastFloatDown {
+  0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+  25% { opacity: 0.85; }
+  60% { transform: translateY(35px) translateX(-15px) rotate(45deg); opacity: 0.75; }
+  85% { opacity: 0.4; }
+  100% { transform: translateY(80px) translateX(10px) rotate(90deg); opacity: 0; }
+}
+
+.animate-spritecast-float-up {
+  animation: spritecastFloatUp 3.5s ease-in-out infinite;
+}
+
+.animate-spritecast-float-down {
+  animation: spritecastFloatDown 4.2s ease-in-out infinite;
+}
+
+/* ========================================================= */
+/* AUTHENTIC ANIME CHARACTER IDLE BREATHING & SHADOW PULSE   */
+/* ========================================================= */
+@keyframes animeSpriteIdleBreathe {
+  0%, 100% {
+    transform: translateY(0px) scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: translateY(-2px) scaleY(1.022) scaleX(0.992);
+  }
+}
+
+@keyframes animeShadowBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(0.93);
+    opacity: 0.68;
+  }
+}
+
+.animate-idle-breathe {
+  animation: animeSpriteIdleBreathe 2.0s ease-in-out infinite;
+}
+
+.animate-shadow-breathe {
+  animation: animeShadowBreathe 2.0s ease-in-out infinite;
+}
+
+/* ========================================================= */
+/* SNAPPY COMBAT CAMERA HIT SHAKE (SUBTLE, NON-DISORIENTING) */
+/* ========================================================= */
+@keyframes battleSubtleShake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes battleHeavyShake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3.5px, 2px); }
+  40% { transform: translate(3.5px, -2px); }
+  60% { transform: translate(-2px, 1px); }
+  80% { transform: translate(2px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-subtle-shake {
+  animation: battleSubtleShake 0.14s ease-out;
+}
+
+.animate-heavy-shake {
+  animation: battleHeavyShake 0.18s ease-out;
+}
+
+/* ========================================================= */
+/* ASTRAL SUMMONS ALTAR ANIMATIONS                           */
+/* ========================================================= */
+@keyframes astralVortexSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes astralVortexFast {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.12); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes astralRunePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
+    opacity: 0.85;
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 1)) drop-shadow(0 0 20px rgba(236, 72, 153, 0.85));
+    opacity: 1;
+  }
+}
+
+@keyframes astralMandalaBreathe {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes astralCrystalBob {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.08);
+  }
+}
+
+@keyframes astralStarFloat {
+  0% {
+    transform: translateY(0px) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-28px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes astralBeamSurge {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scaleX(0.9);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scaleX(1.15);
+  }
+}
+
+.animate-astral-vortex {
+  animation: astralVortexSpin 20s linear infinite;
+}
+
+.animate-astral-vortex-fast {
+  animation: astralVortexFast 2.5s linear infinite;
+}
+
+.animate-astral-vortex-reverse {
+  animation: astralVortexSpin 30s linear infinite reverse;
+}
+
+.animate-astral-rune-pulse {
+  animation: astralRunePulse 2.8s ease-in-out infinite;
+}
+
+.animate-astral-mandala {
+  animation: astralMandalaBreathe 24s ease-in-out infinite;
+}
+
+.animate-astral-crystal-bob {
+  animation: astralCrystalBob 3s ease-in-out infinite;
+}
+
+.animate-astral-star-float {
+  animation: astralStarFloat 2.4s ease-out infinite;
+}
+
+.animate-astral-beam {
+  animation: astralBeamSurge 1.6s ease-in-out infinite;
+}
+
+/* ========================================================= */
+/* REALM DIMENSIONAL PORTAL ANIMATIONS                       */
+/* ========================================================= */
+@keyframes portalEventHorizon {
+  0% {
+    background-position: 50% 0%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% {
+    background-position: 50% 100%;
+    filter: hue-rotate(25deg) brightness(1.2);
+  }
+  100% {
+    background-position: 50% 0%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+}
+
+@keyframes portalEnergyWave {
+  0% {
+    transform: translateY(0%) scaleY(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(-8%) scaleY(1.08);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(0%) scaleY(1);
+    opacity: 0.55;
+  }
+}
+
+@keyframes portalCrestGlint {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.9) rotate(0deg);
+    opacity: 0.65;
+    filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.6));
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3) rotate(45deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(250, 204, 21, 1)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.9));
+  }
+}
+
+@keyframes realmOrbFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.1);
+  }
+}
+
+@keyframes realmSparkDrift {
+  0% {
+    transform: translateY(0px) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-38px) scale(1.15) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes realmRiftPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.animate-portal-event-horizon {
+  background-size: 100% 200%;
+  animation: portalEventHorizon 6s ease-in-out infinite;
+}
+
+.animate-portal-energy-wave {
+  animation: portalEnergyWave 3.5s ease-in-out infinite;
+}
+
+.animate-portal-crest-glint {
+  animation: portalCrestGlint 2.8s ease-in-out infinite;
+}
+
+.animate-realm-orb {
+  animation: realmOrbFloat 3s ease-in-out infinite;
+}
+
+.animate-realm-spark {
+  animation: realmSparkDrift 2.8s ease-out infinite;
+}
+
+.animate-realm-rift {
+  animation: realmRiftPulse 3.2s ease-in-out infinite;
+}
+
+/* ========================================================= */
+/* 16-BIT RETRO PORTAL & TELEPORT SPRITE SHEET ANIMATIONS    */
+/* ========================================================= */
+@keyframes doorwayPortalPlay {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 0%; }
+}
+
+.animate-doorway-portal {
+  animation: doorwayPortalPlay 1.6s steps(40) infinite;
+}
+
+@keyframes portalCyclePlay {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 0%; }
+}
+
+.animate-portal-cycle {
+  animation: portalCyclePlay 1.35s steps(25) infinite;
+}
+
+.animate-portal-cycle-fast {
+  animation: portalCyclePlay 0.85s steps(25) infinite;
+}
+
+@keyframes walkStride {
+  0%, 100% { transform: translateY(0px) scaleY(1); }
+  25% { transform: translateY(-2.5px) scaleY(1.03); }
+  50% { transform: translateY(0px) scaleY(0.97); }
+  75% { transform: translateY(-2.5px) scaleY(1.03); }
+}
+
+.animate-walk-stride {
+  animation: walkStride 0.28s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes enemyPatrolBob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+.animate-enemy-bob {
+  animation: enemyPatrolBob 1.8s ease-in-out infinite;
+}
+
+@keyframes footstepDust {
+  0% { transform: translate(-50%, -50%) scale(0.55); opacity: 0.85; }
+  100% { transform: translate(-50%, -50%) scale(1.9); opacity: 0; }
+}
+
+.animate-footstep-dust {
+  animation: footstepDust 0.42s ease-out forwards;
+}
+
+@keyframes mythicWeaponPlay {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+@keyframes mythicShimmer {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.55), 0 0 22px rgba(251, 191, 36, 0.35), inset 0 0 10px rgba(244, 63, 94, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(251, 191, 36, 0.75), 0 0 32px rgba(217, 70, 239, 0.45), inset 0 0 14px rgba(251, 191, 36, 0.35);
+  }
+}
+
+.mythic-card-glow {
+  animation: mythicShimmer 2.4s ease-in-out infinite;
+}
+
+
+
+

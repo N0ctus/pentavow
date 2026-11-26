@@ -1,0 +1,82 @@
+{
+  "rain": {
+    "file": "rain_frames.png",
+    "fw": 240,
+    "fh": 160,
+    "cols": 5,
+    "rows": 13,
+    "frames": 61,
+    "fps": 22
+  },
+  "sunny": {
+    "file": "sunny_frames.png",
+    "fw": 240,
+    "fh": 112,
+    "cols": 3,
+    "rows": 5,
+    "frames": 13,
+    "fps": 10
+  },
+  "cloudShadows": {
+    "file": "cloud_shadows.png",
+    "fw": 720,
+    "fh": 408
+  },
+  "snow": {
+    "file": "snow_frames.png",
+    "fw": 64,
+    "fh": 32,
+    "cols": 4,
+    "rows": 4,
+    "frames": 16,
+    "fps": 16
+  },
+  "blizzard": {
+    "file": "blizzard_frames.png",
+    "fw": 32,
+    "fh": 32,
+    "cols": 4,
+    "rows": 4,
+    "frames": 16,
+    "fps": 22
+  },
+  "snowDungeon": {
+    "file": "snow_dungeon_frames.png",
+    "fw": 32,
+    "fh": 32,
+    "cols": 4,
+    "rows": 4,
+    "frames": 16,
+    "fps": 14
+  },
+  "sandstorm": {
+    "darkFile": "sandstorm_dark.png",
+    "lightFile": "sandstorm_light.png",
+    "fw": 120,
+    "fh": 32
+  },
+  "fog": {
+    "darkFile": "fog_dark.png",
+    "lightFile": "fog_light.png",
+    "fw": 336,
+    "fh": 120
+  },
+  "embers": {
+    "file": "embers_frames.png",
+    "fw": 480,
+    "fh": 320,
+    "cols": 4,
+    "rows": 4,
+    "frames": 13,
+    "fps": 12
+  },
+  "hail": {
+    "file": "hail_frames.png",
+    "fw": 240,
+    "fh": 160,
+    "cols": 5,
+    "rows": 13,
+    "frames": 65,
+    "fps": 22
+  }
+}
