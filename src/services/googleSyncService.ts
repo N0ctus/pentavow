@@ -32,9 +32,9 @@ export interface CloudSavePayload {
   player: PlayerProfile;
 }
 
-const AUTH_CHOICE_KEY = 'tessera_auth_choice_v1';
-const CLIENT_ID_STORAGE_KEY = 'tessera_google_client_id_v1';
-const DRIVE_SAVE_FILENAME = 'tessera_legacy_save_v1.json';
+const AUTH_CHOICE_KEY = 'pentavow_auth_choice_v1';
+const CLIENT_ID_STORAGE_KEY = 'pentavow_google_client_id_v1';
+const DRIVE_SAVE_FILENAME = 'pentavow_save_v1.json';
 const GOOGLE_SCOPES = 'https://www.googleapis.com/auth/drive.appdata openid email profile';
 
 interface StoredAuthMeta {

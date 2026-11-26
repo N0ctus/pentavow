@@ -39,7 +39,8 @@ import { scheduleGoogleCloudUpload } from '../services/googleSyncService';
 
 const aiPaths = new Map<string, Array<{ x: number; y: number }>>();
 
-const STORAGE_KEY = 'tessera_legacy_save_v1';
+const STORAGE_KEY = 'pentavow_save_v1';
+const LEGACY_STORAGE_KEY = 'tessera_legacy_save_v1';
 
 const INITIAL_AI_HUNTERS: AIHunter[] = [
   {
@@ -372,7 +373,7 @@ function calculateMaxHp(profile: PlayerProfile): number {
 
 function loadInitialState(): GameState {
   try {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
       // Validate and sanitize parsed

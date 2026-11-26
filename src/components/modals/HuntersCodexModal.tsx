@@ -216,7 +216,7 @@ export const HuntersCodexModal: React.FC<HuntersCodexModalProps> = ({ onClose, i
                   <span>No-Mana 5-Weapon Hotbar</span>
                 </h3>
                 <p className="text-[11px] text-slate-300">
-                  Combat in Tessera Legacy is inspired by <em>Logres</em>: there are no mana bars or cooldown potions!
+                  Combat in Pentavow is inspired by <em>Logres</em>: there are no mana bars or cooldown potions!
                 </p>
                 <div className="space-y-1.5 text-[11px] text-slate-300">
                   <div className="p-2 rounded-lg bg-slate-950/50 border border-slate-800">
@@ -390,7 +390,7 @@ export const HuntersCodexModal: React.FC<HuntersCodexModalProps> = ({ onClose, i
                   <span>Seamless Drop-In Battles</span>
                 </h3>
                 <p className="text-[11px] text-slate-300">
-                  Tessera Legacy simulates a living MMO world right on your device:
+                  Pentavow simulates a living MMO world right on your device:
                 </p>
                 <ul className="text-[11px] space-y-1.5 text-slate-300 list-disc list-inside">
                   <li>
@@ -421,7 +421,7 @@ export const HuntersCodexModal: React.FC<HuntersCodexModalProps> = ({ onClose, i
         {/* Footer */}
         <div className="p-3 border-t border-slate-800 bg-slate-900/90 flex items-center justify-between shrink-0">
           <span className="text-[10px] text-slate-400">
-            Tessera Legacy v1.0 • Hunter&apos;s Codex
+            Pentavow v1.0 • Hunter&apos;s Codex
           </span>
           <button
             onClick={() => {

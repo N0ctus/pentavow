@@ -112,7 +112,7 @@ export const CoopModal: React.FC<CoopModalProps> = ({ onClose, onOpenAccount }) 
             value={roomInput}
             maxLength={24}
             onChange={e => setRoomInput(e.target.value.toUpperCase())}
-            placeholder="Room code (e.g. TESSERA-1)"
+            placeholder="Room code (e.g. PENTAVOW-1)"
             className="flex-1 bg-slate-950 border border-slate-700 focus:border-cyan-400 rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold text-cyan-200 outline-none"
           />
           <button

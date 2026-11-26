@@ -55,9 +55,9 @@ export interface CoopState {
   peers: Record<string, RemotePeerState>;
 }
 
-const PEER_ID_KEY = 'tessera_coop_peer_id_v1';
-const ROOM_STORAGE_KEY = 'tessera_coop_room_v1';
-const APP_ID = 'tessera-legacy-coop-v1';
+const PEER_ID_KEY = 'pentavow_coop_peer_id_v1';
+const ROOM_STORAGE_KEY = 'pentavow_coop_room_v1';
+const APP_ID = 'pentavow-coop-v1';
 const PEER_STALE_MS = 7000;
 
 function getOrCreatePeerId(): string {
@@ -85,7 +85,7 @@ function getInitialRoomCode(): string {
       // Ignore
     }
   }
-  return 'TESSERA-1';
+  return 'PENTAVOW-1';
 }
 
 type LocalPayload =
@@ -165,11 +165,11 @@ function teardownTransports() {
 
 export function initCoopRoom(roomCodeInput?: string) {
   if (typeof window === 'undefined') return;
-  const roomCode = (roomCodeInput || state.roomCode || 'TESSERA-1')
+  const roomCode = (roomCodeInput || state.roomCode || 'PENTAVOW-1')
     .trim()
     .toUpperCase()
     .replace(/[^A-Z0-9_-]/g, '')
-    .slice(0, 24) || 'TESSERA-1';
+    .slice(0, 24) || 'PENTAVOW-1';
 
   teardownTransports();
 
@@ -188,7 +188,7 @@ export function initCoopRoom(roomCodeInput?: string) {
 
   // 1. Instant zero-cost same-browser multi-tab channel (works even offline)
   if ('BroadcastChannel' in window) {
-    bc = new BroadcastChannel(`tessera_coop_${roomCode}`);
+    bc = new BroadcastChannel(`pentavow_coop_${roomCode}`);
     bc.onmessage = (event: MessageEvent<LocalPayload>) => {
       const msg = event.data;
       if (!msg) return;
