@@ -175,7 +175,7 @@ export const OverworldMap: React.FC = () => {
 
   const currentRealm = getRealmById(store.currentRealmId);
   const bigMap = useMemo(() => getBigMapForRealm(store.currentRealmId), [store.currentRealmId]);
-  const bossTemplate = ENEMY_TEMPLATES[currentRealm.bossTemplateId];
+  const bossTemplate = ENEMY_TEMPLATES[currentRealm?.bossTemplateId] || ENEMY_TEMPLATES['boss-estoque'];
 
   // Clear click path whenever switching maps
   useEffect(() => {

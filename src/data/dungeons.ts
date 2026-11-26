@@ -10,7 +10,7 @@ export const DUNGEONS: DungeonDefinition[] = [
     waves: [
       {
         waveNumber: 1,
-        enemyTemplateId: 'enemy_giroro',
+        enemyTemplateId: 'gunner-giroro',
         enemyName: 'Crimson Gunner Giroro',
         enemyHp: 2200,
         enemyElement: 'FIRE',
@@ -19,7 +19,7 @@ export const DUNGEONS: DungeonDefinition[] = [
       },
       {
         waveNumber: 2,
-        enemyTemplateId: 'enemy_keiji',
+        enemyTemplateId: 'spearman-keiji',
         enemyName: 'Wild Spearman Keiji',
         enemyHp: 5500,
         enemyElement: 'FIRE',
@@ -49,7 +49,7 @@ export const DUNGEONS: DungeonDefinition[] = [
     waves: [
       {
         waveNumber: 1,
-        enemyTemplateId: 'enemy_keroro',
+        enemyTemplateId: 'frog-keroro',
         enemyName: 'Frog Shinobi Keroro',
         enemyHp: 2800,
         enemyElement: 'WATER',
@@ -58,7 +58,7 @@ export const DUNGEONS: DungeonDefinition[] = [
       },
       {
         waveNumber: 2,
-        enemyTemplateId: 'enemy_sasquatch',
+        enemyTemplateId: 'frost-sasquatch',
         enemyName: 'Frost Yeti Sasquatch',
         enemyHp: 7200,
         enemyElement: 'WATER',
@@ -88,7 +88,7 @@ export const DUNGEONS: DungeonDefinition[] = [
     waves: [
       {
         waveNumber: 1,
-        enemyTemplateId: 'enemy_dororo',
+        enemyTemplateId: 'ninja-dororo',
         enemyName: 'Azure Shinobi Dororo',
         enemyHp: 3500,
         enemyElement: 'WIND',
@@ -97,7 +97,7 @@ export const DUNGEONS: DungeonDefinition[] = [
       },
       {
         waveNumber: 2,
-        enemyTemplateId: 'enemy_felicia',
+        enemyTemplateId: 'shadowclaw-felicia',
         enemyName: 'Shadowclaw Felicia',
         enemyHp: 9000,
         enemyElement: 'WIND',

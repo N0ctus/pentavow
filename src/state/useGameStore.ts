@@ -1615,9 +1615,12 @@ export const gameActions = {
     // If player was in this battle and won, award rewards & materials!
     const playerPart = battle.participants.find(p => p.isPlayer);
     if (playerPart && victory) {
-      const tmpl = ENEMY_TEMPLATES[enemy?.templateId || 'moss-slime'];
+      const tmpl = ENEMY_TEMPLATES[battle.enemy.templateId] || (enemy ? ENEMY_TEMPLATES[enemy.templateId] : null) || ENEMY_TEMPLATES['moss-slime'];
       if (tmpl) {
-        this.addRewards(tmpl.goldReward, tmpl.expReward, tmpl.shardReward);
+        this.addRewards(tmpl.goldReward || 100, tmpl.expReward || 100, tmpl.shardReward || 10);
+
+        if (!state.player.materials) state.player.materials = {};
+        if (!state.player.defeatedRealmBosses) state.player.defeatedRealmBosses = {};
 
         // Monster material drops
         let dropMatId = 'mat-slime-essence';
@@ -1628,7 +1631,7 @@ export const gameActions = {
         } else if (tmpl.id === 'gale-hawk') {
           dropMatId = 'mat-gale-feather';
           dropCount = Math.random() < 0.6 ? 2 : 1;
-        } else if (tmpl.id === 'abyssal-stag' || tmpl.id === 'guardian-seiryu' || tmpl.id === 'scarlet-akazonae' || tmpl.id === 'master-onmyoji' || tmpl.id === 'dark-horseman') {
+        } else if (tmpl.id === 'abyssal-stag' || tmpl.id === 'guardian-seiryu' || tmpl.id === 'scarlet-akazonae' || tmpl.id === 'master-onmyoji' || tmpl.id === 'dark-horseman' || tmpl.isBoss) {
           dropMatId = 'mat-abyssal-core';
           dropCount = 1;
         }

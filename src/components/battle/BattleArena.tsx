@@ -73,19 +73,26 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
   const [comboCount, setComboCount] = useState<number>(0);
   const comboTimerRef = useRef<number>(0);
   const [bossStagger, setBossStagger] = useState<number>(0); // 0 to 100
+  const bossStaggerRef = useRef<number>(0);
   const [isBossStaggered, setIsBossStaggered] = useState<boolean>(false);
+  const isBossStaggeredRef = useRef<boolean>(false);
   const hasEnragedRef = useRef<boolean>(false);
   const dropInTimerRef = useRef<number>(0);
 
   // Pillar 1: Boss Multi-Phase Stagger Break & Counterplay States
   const [breakPhaseActive, setBreakPhaseActive] = useState<boolean>(false);
+  const breakPhaseActiveRef = useRef<boolean>(false);
   const [breakTimeRemaining, setBreakTimeRemaining] = useState<number>(0);
+  const breakTimeRemainingRef = useRef<number>(0);
   const [breakDamageRequired, setBreakDamageRequired] = useState<number>(0);
+  const breakDamageRequiredRef = useRef<number>(0);
   const [breakDamageAccumulated, setBreakDamageAccumulated] = useState<number>(0);
+  const breakDamageAccumulatedRef = useRef<number>(0);
   const breakPhaseTriggeredRef = useRef<boolean>(false);
 
   // Active Reaction Counterplay (Parry / Guard)
   const [isPlayerGuarded, setIsPlayerGuarded] = useState<boolean>(false);
+  const isPlayerGuardedRef = useRef<boolean>(false);
   const [guardCooldown, setGuardCooldown] = useState<number>(0);
   const [parryFeedback, setParryFeedback] = useState<string | null>(null);
 
@@ -284,18 +291,22 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
     // Check if within the active window (last 0.85s of the cast)
     if (currentCast && (currentCast.totalSec - currentCast.elapsedSec) <= 0.85) {
       soundManager.playParry();
+      isPlayerGuardedRef.current = true;
       setIsPlayerGuarded(true);
       gameActions.completeNoviceStep(4);
       triggerHitstop(80);
       triggerShake('CRIT');
       setParryFeedback('⚡ PERFECT GUARD! +35% ETHER');
       setTimeout(() => setParryFeedback(null), 900);
-      setTimeout(() => setIsPlayerGuarded(false), 900);
+      setTimeout(() => {
+        isPlayerGuardedRef.current = false;
+        setIsPlayerGuarded(false);
+      }, 900);
 
       // Award +35 Ether to all player weapons!
       const player = battle.participants.find(p => p.isPlayer);
       if (player) {
-        player.equippedWeapons.forEach(w => {
+        (player.equippedWeapons || []).forEach(w => {
           player.ether[w.id] = Math.min(100, (player.ether[w.id] || 0) + 35);
         });
         const coords = getHunterCoords(player.id);
@@ -312,7 +323,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
       setParryFeedback('MISTIMED!');
       setTimeout(() => setParryFeedback(null), 700);
     }
-  }, [battle, battleResult, guardCooldown, store.player.name, getHunterCoords, addPopup, triggerHitstop, triggerShake]);
+  }, [battle, battleResult, guardCooldown, store.player.name, getHunterCoords, addPopup, triggerHitstop, triggerShake, spawnSpriteCastHit]);
 
   // Centralized Enemy Damage Application (Combos, Stagger Break & Defeat Checks)
   const applyDamageToEnemy = useCallback((rawDmg: number, element: ElementType, isCrit: boolean, weaponCat?: WeaponCategory, broadcastCoop: boolean = false): number => {
@@ -346,23 +357,27 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
 
     battle.enemy.hp = Math.max(0, battle.enemy.hp - finalDmg);
 
-    // Pillar 1: Accumulate Break damage during Break Phase
-    if (breakPhaseActive) {
-      setBreakDamageAccumulated(prev => {
-        const next = prev + finalDmg;
-        if (next >= breakDamageRequired && !isBossStaggered) {
-          setBreakPhaseActive(false);
-          setIsBossStaggered(true);
-          hasEnragedRef.current = true;
-          soundManager.playBossBreak();
-          triggerShake('HEAVY');
-          addPopup('STAGGER BROKEN!', 'crit', 19, 32);
-          battle.combatLogs.push(`[BREAK SUCCESS] ⚡ Boss Stance Ruptured! ${battle.enemy.name} is STAGGERED for 6s (+50% DMG VULNERABILITY)!`);
-          setTimeout(() => setIsBossStaggered(false), 6000);
-          return next;
-        }
-        return next;
-      });
+    // Pillar 1: Accumulate Break damage during Break Phase (Safely tracked via ref + state outside updater)
+    if (breakPhaseActiveRef.current) {
+      const nextAcc = breakDamageAccumulatedRef.current + finalDmg;
+      breakDamageAccumulatedRef.current = nextAcc;
+      setBreakDamageAccumulated(nextAcc);
+
+      if (nextAcc >= breakDamageRequiredRef.current && !isBossStaggeredRef.current) {
+        breakPhaseActiveRef.current = false;
+        setBreakPhaseActive(false);
+        isBossStaggeredRef.current = true;
+        setIsBossStaggered(true);
+        hasEnragedRef.current = true;
+        soundManager.playBossBreak();
+        triggerShake('HEAVY');
+        addPopup('STAGGER BROKEN!', 'crit', 19, 32);
+        battle.combatLogs.push(`[BREAK SUCCESS] ⚡ Boss Stance Ruptured! ${battle.enemy.name} is STAGGERED for 6s (+50% DMG VULNERABILITY)!`);
+        setTimeout(() => {
+          isBossStaggeredRef.current = false;
+          setIsBossStaggered(false);
+        }, 6000);
+      }
     }
 
     if (battle.enemy.hp <= 0 && !battleResult) {
@@ -374,7 +389,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
     }
 
     return finalDmg;
-  }, [battle, battleResult, elementalAffliction, breakPhaseActive, breakDamageRequired, isBossStaggered, addPopup, checkEnemyDefeated, triggerShake, store.currentRealmId, store.player.name]);
+  }, [battle, battleResult, elementalAffliction, addPopup, checkEnemyDefeated, triggerShake, store.currentRealmId, store.player.name]);
 
   // Clean expired popups and decay combo
   useEffect(() => {
@@ -408,18 +423,23 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
 
     if (isWeakness) {
       soundManager.playWeaknessHit();
-      // Increase boss stagger stance
-      setBossStagger(prev => {
-        const next = prev + (isUlt ? 35 : 20);
-        if (next >= 100 && !isBossStaggered) {
-          setIsBossStaggered(true);
-          soundManager.playBossBreak();
-          triggerShake('HEAVY');
-          setTimeout(() => setIsBossStaggered(false), 4500);
-          return 0;
-        }
-        return Math.min(100, next);
-      });
+      // Increase boss stagger stance (Safely tracked via ref + state outside updater)
+      const nextStagger = Math.min(100, bossStaggerRef.current + (isUlt ? 35 : 20));
+      bossStaggerRef.current = nextStagger;
+      setBossStagger(nextStagger);
+
+      if (nextStagger >= 100 && !isBossStaggeredRef.current) {
+        bossStaggerRef.current = 0;
+        setBossStagger(0);
+        isBossStaggeredRef.current = true;
+        setIsBossStaggered(true);
+        soundManager.playBossBreak();
+        triggerShake('HEAVY');
+        setTimeout(() => {
+          isBossStaggeredRef.current = false;
+          setIsBossStaggered(false);
+        }, 4500);
+      }
     }
 
     if (arch === 'BLOW') {
@@ -738,37 +758,42 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
       if (battle.enemy.isBoss && !breakPhaseTriggeredRef.current && battle.enemy.hp <= battle.enemy.maxHp * 0.5) {
         breakPhaseTriggeredRef.current = true;
         soundManager.playBossRoar();
+        breakPhaseActiveRef.current = true;
         setBreakPhaseActive(true);
+        breakTimeRemainingRef.current = 5.0;
         setBreakTimeRemaining(5.0);
         const req = Math.max(3000, Math.floor(battle.enemy.maxHp * 0.22));
+        breakDamageRequiredRef.current = req;
         setBreakDamageRequired(req);
+        breakDamageAccumulatedRef.current = 0;
         setBreakDamageAccumulated(0);
         triggerShake('HEAVY');
         battle.combatLogs.push(`[PHASE 2 BREAK] ⚠️ ${battle.enemy.name} channels [Cataclysmic Rupture]! Deal ${req.toLocaleString()} DMG within 5s to STAGGER!`);
       }
 
-      // Tick Break Phase countdown
-      if (breakPhaseActive) {
-        setBreakTimeRemaining(prev => {
-          const next = Math.max(0, prev - dt);
-          if (next <= 0) {
-            // Break phase expired: boss detonates Cataclysmic Rupture!
-            setBreakPhaseActive(false);
-            hasEnragedRef.current = true;
-            soundManager.playHeavyBlow(battle.enemy.element);
-            triggerShake('HEAVY');
-            battle.participants.forEach(p => {
-              if (!p.isDead) {
-                const nukeDmg = Math.floor(p.hp * 0.45);
-                p.hp = Math.max(1, p.hp - nukeDmg);
-                const c = getHunterCoords(p.id);
-                addPopup(nukeDmg, 'damage', c.x - 2, c.y - 8, battle.enemy.element);
-              }
-            });
-            battle.combatLogs.push(`[BREAK FAILED] 💥 ${battle.enemy.name} detonates [Cataclysmic Rupture] dealing 45% HP damage! Berserk Enrage unleashed!`);
-          }
-          return next;
-        });
+      // Tick Break Phase countdown (Safely managed via ref + clean state sync)
+      if (breakPhaseActiveRef.current) {
+        const nextTime = Math.max(0, breakTimeRemainingRef.current - dt);
+        breakTimeRemainingRef.current = nextTime;
+        setBreakTimeRemaining(nextTime);
+
+        if (nextTime <= 0) {
+          // Break phase expired: boss detonates Cataclysmic Rupture!
+          breakPhaseActiveRef.current = false;
+          setBreakPhaseActive(false);
+          hasEnragedRef.current = true;
+          soundManager.playHeavyBlow(battle.enemy.element || 'FIRE');
+          triggerShake('HEAVY');
+          (battle.participants || []).forEach(p => {
+            if (p && !p.isDead) {
+              const nukeDmg = Math.max(1, Math.floor((p.hp || 1) * 0.45));
+              p.hp = Math.max(1, p.hp - nukeDmg);
+              const c = getHunterCoords(p.id);
+              addPopup(nukeDmg, 'damage', c.x - 2, c.y - 8, battle.enemy.element || 'FIRE');
+            }
+          });
+          battle.combatLogs.push(`[BREAK FAILED] 💥 ${battle.enemy.name} detonates [Cataclysmic Rupture] dealing 45% HP damage! Berserk Enrage unleashed!`);
+        }
       }
 
       // 1. Tick Drop-In mechanism for AI Allies
@@ -783,8 +808,14 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
       }
 
       // 2. Tick Player & AI Combatants
-      battle.participants.forEach(hunter => {
-        if (hunter.isDead) return;
+      (battle.participants || []).forEach(hunter => {
+        if (!hunter || hunter.isDead) return;
+
+        // Ensure collections are initialized
+        if (!hunter.buffs) hunter.buffs = [];
+        if (!hunter.cooldowns) hunter.cooldowns = {};
+        if (!hunter.ether) hunter.ether = {};
+        if (!hunter.equippedWeapons) hunter.equippedWeapons = [];
 
         // Tick buffs
         hunter.buffs.forEach(b => {
@@ -808,22 +839,22 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
         hunter.autoAttackTimer += dt;
         if (hunter.autoAttackTimer >= attackInterval) {
           hunter.autoAttackTimer = 0;
-          const elemMult = getElementalMultiplier(mainWeapon.element, battle.enemy.element, hunter.job);
+          const elemMult = getElementalMultiplier(mainWeapon.element, battle.enemy.element || 'FIRE', hunter.job);
           const comboBonus = 1.0 + Math.min(0.30, comboCount * 0.01);
-          const staggerBonus = isBossStaggered ? 2.0 : 1.0;
+          const staggerBonus = isBossStaggeredRef.current ? 2.0 : 1.0;
 
           // Shadowblade hits twice per passive
           const hits = hunter.job === 'SHADOWBLADE' ? 2 : 1;
-          const baseStat = mainWeapon.id === '__unarmed__' ? Math.max(hunter.atk, hunter.matk) : hunter.atk;
+          const baseStat = mainWeapon.id === '__unarmed__' ? Math.max(hunter.atk || 40, hunter.matk || 40) : (hunter.atk || 40);
           for (let h = 0; h < hits; h++) {
             const holyCrit = holyAuraTimer > 0 ? 0.25 : 0;
-            const isCrit = Math.random() < (hunter.critRate + holyCrit);
+            const isCrit = Math.random() < ((hunter.critRate || 0.05) + holyCrit);
             const critMult = 1.5 + perks.critDamageBonus;
             const rawDmg = Math.max(5, Math.floor(baseStat * elemMult * comboBonus * staggerBonus * (isCrit ? critMult : 1.0)));
             const dmg = applyDamageToEnemy(rawDmg, mainWeapon.element, isCrit, mainWeapon.category, hunter.isPlayer);
 
             const threatMod = hunter.job === 'VANGUARD' ? 2.5 : 1.0;
-            hunter.threat += dmg * threatMod;
+            hunter.threat = (hunter.threat || 0) + (dmg * threatMod);
 
             const isWeak = elemMult > 1.2;
             const isResist = elemMult < 0.9;
@@ -844,7 +875,8 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
 
         // Auto-Battle for Player OR Autonomous behavior for AI
         if ((hunter.isPlayer && store.autoBattle) || (!hunter.isPlayer)) {
-          hunter.equippedWeapons.forEach(w => {
+          (hunter.equippedWeapons || []).forEach(w => {
+            if (!w) return;
             const eth = hunter.ether[w.id] || 0;
             const cd = hunter.cooldowns[w.id] || 0;
 
@@ -856,18 +888,20 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
                 hunter.ether[w.id] = 0;
                 if (w.effectType === 'HEAL') {
                   soundManager.playHeal();
-                  const healAmt = Math.floor(hunter.maxHp * w.ultimateMultiplier);
-                  battle.participants.forEach(p => {
-                    p.hp = Math.min(p.maxHp, p.hp + healAmt);
-                    const c = getHunterCoords(p.id);
-                    addPopup(healAmt, 'heal', c.x - 2, c.y - 8, 'LIGHT');
+                  const healAmt = Math.floor((hunter.maxHp || 1000) * (w.ultimateMultiplier || 0.4));
+                  (battle.participants || []).forEach(p => {
+                    if (p && !p.isDead) {
+                      p.hp = Math.min(p.maxHp, p.hp + healAmt);
+                      const c = getHunterCoords(p.id);
+                      addPopup(healAmt, 'heal', c.x - 2, c.y - 8, 'LIGHT');
+                    }
                   });
                   battle.combatLogs.push(`[HEAL] Ally ${hunter.name} cast ULTIMATE ${w.ultimateSkillName}!`);
                 } else {
-                  const elemMult = getElementalMultiplier(w.element, battle.enemy.element, hunter.job);
-                  const rawDmg = Math.floor((hunter.atk + hunter.matk) * w.ultimateMultiplier * elemMult * (isBossStaggered ? 2.0 : 1.0));
+                  const elemMult = getElementalMultiplier(w.element, battle.enemy.element || 'FIRE', hunter.job);
+                  const rawDmg = Math.floor(((hunter.atk || 50) + (hunter.matk || 50)) * (w.ultimateMultiplier || 2.0) * elemMult * (isBossStaggeredRef.current ? 2.0 : 1.0));
                   const dmg = applyDamageToEnemy(rawDmg, w.element, true, w.category);
-                  hunter.threat += dmg;
+                  hunter.threat = (hunter.threat || 0) + dmg;
                   addPopup(dmg, 'crit', 20, 50, w.element);
                   executeAttackFeedback(w, 20, 50, elemMult, true, true);
                   battle.combatLogs.push(`[ULTIMATE] Ally ${hunter.name} cast ULTIMATE ${w.ultimateSkillName} (${dmg} DMG)!`);
@@ -878,12 +912,12 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
                 triggerSkill(w.id);
               } else {
                 // AI casts active skill
-                hunter.cooldowns[w.id] = w.cooldownSec;
-                hunter.ether[w.id] = Math.min(100, eth + w.etherGain);
-                const elemMult = getElementalMultiplier(w.element, battle.enemy.element, hunter.job);
-                const rawDmg = Math.floor(hunter.atk * w.activeMultiplier * elemMult * (isBossStaggered ? 2.0 : 1.0));
+                hunter.cooldowns[w.id] = w.cooldownSec || 6;
+                hunter.ether[w.id] = Math.min(100, eth + (w.etherGain || 15));
+                const elemMult = getElementalMultiplier(w.element, battle.enemy.element || 'FIRE', hunter.job);
+                const rawDmg = Math.floor((hunter.atk || 50) * (w.activeMultiplier || 1.4) * elemMult * (isBossStaggeredRef.current ? 2.0 : 1.0));
                 const dmg = applyDamageToEnemy(rawDmg, w.element, false, w.category);
-                hunter.threat += dmg * (hunter.job === 'VANGUARD' ? 2.5 : 1.0);
+                hunter.threat = (hunter.threat || 0) + (dmg * (hunter.job === 'VANGUARD' ? 2.5 : 1.0));
                 addPopup(dmg, elemMult > 1.2 ? 'weakness' : 'damage', 20, 50, w.element);
                 executeAttackFeedback(w, 20, 50, elemMult, false, false);
               }
@@ -904,7 +938,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
           const skill = enemy.currentCast;
           enemy.currentCast = undefined;
 
-          const aliveHunters = battle.participants.filter(p => !p.isDead);
+          const aliveHunters = (battle.participants || []).filter(p => p && !p.isDead);
           if (aliveHunters.length === 0) {
             setBattleResult('DEFEAT');
             return;
@@ -913,13 +947,13 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
           if (skill.isAoE) {
             aliveHunters.forEach(h => {
               let dmgRed = h.job === 'VANGUARD' ? 0.20 : 0.0;
-              const defBuff = h.buffs.find(b => b.type === 'DEF');
+              const defBuff = (h.buffs || []).find(b => b.type === 'DEF');
               if (defBuff) dmgRed += defBuff.value;
 
-              let incomingDmg = Math.max(10, Math.floor(enemy.matk * skill.multiplier * (1 - dmgRed)));
+              let incomingDmg = Math.max(10, Math.floor((enemy.matk || 50) * (skill.multiplier || 1.5) * (1 - dmgRed)));
 
               // Perfect Guard / Evade Reaction mitigation
-              if (h.isPlayer && isPlayerGuarded) {
+              if (h.isPlayer && isPlayerGuardedRef.current) {
                 incomingDmg = Math.max(1, Math.floor(incomingDmg * 0.10));
                 const c = getHunterCoords(h.id);
                 addPopup('GUARDED! -90%', 'shield', c.x - 2, c.y - 12, 'LIGHT');
@@ -928,22 +962,22 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
               h.hp = Math.max(0, h.hp - incomingDmg);
               if (h.hp <= 0) h.isDead = true;
 
-              executeBossAttackOnHunter(h, incomingDmg, enemy.element, true, true);
+              executeBossAttackOnHunter(h, incomingDmg, enemy.element || 'FIRE', true, true);
             });
-            soundManager.playHeavyBlow(enemy.element);
+            soundManager.playHeavyBlow(enemy.element || 'FIRE');
             triggerShake('LIGHT');
-            battle.combatLogs.push(`[AOE] ${enemy.name} unleashed [${skill.skillName}] AoE on all hunters!`);
+            battle.combatLogs.push(`[AOE] ${enemy.name} unleashed [${skill.skillName || 'Cataclysm'}] AoE on all hunters!`);
           } else {
-            const target = [...aliveHunters].sort((a, b) => b.threat - a.threat)[0];
+            const target = [...aliveHunters].sort((a, b) => (b.threat || 0) - (a.threat || 0))[0];
             if (target) {
               let dmgRed = target.job === 'VANGUARD' ? 0.20 : 0.0;
-              const defBuff = target.buffs.find(b => b.type === 'DEF');
+              const defBuff = (target.buffs || []).find(b => b.type === 'DEF');
               if (defBuff) dmgRed += defBuff.value;
 
-              let incomingDmg = Math.max(10, Math.floor(enemy.atk * skill.multiplier * (1 - dmgRed)));
+              let incomingDmg = Math.max(10, Math.floor((enemy.atk || 50) * (skill.multiplier || 1.5) * (1 - dmgRed)));
 
               // Perfect Guard / Evade Reaction mitigation
-              if (target.isPlayer && isPlayerGuarded) {
+              if (target.isPlayer && isPlayerGuardedRef.current) {
                 incomingDmg = Math.max(1, Math.floor(incomingDmg * 0.10));
                 const c = getHunterCoords(target.id);
                 addPopup('GUARDED! -90%', 'guard', c.x, c.y - 8, 'LIGHT');
@@ -952,10 +986,10 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
               target.hp = Math.max(0, target.hp - incomingDmg);
               if (target.hp <= 0) target.isDead = true;
 
-              soundManager.playHeavyBlow(enemy.element);
+              soundManager.playHeavyBlow(enemy.element || 'FIRE');
               triggerShake('LIGHT');
-              executeBossAttackOnHunter(target, incomingDmg, enemy.element, false, true);
-              battle.combatLogs.push(`[HEAVY] ${enemy.name} slammed [${target.name}] with ${skill.skillName}!`);
+              executeBossAttackOnHunter(target, incomingDmg, enemy.element || 'FIRE', false, true);
+              battle.combatLogs.push(`[HEAVY] ${enemy.name} slammed [${target.name}] with ${skill.skillName || 'Heavy Strike'}!`);
             }
           }
 
@@ -976,29 +1010,31 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
             soundManager.playTelegraphWarning();
             enemy.currentCast = {
               skillName: skill.name,
-              totalSec: skill.castTime,
+              totalSec: skill.castTime || 2.0,
               elapsedSec: 0,
-              isAoE: skill.isAoE,
-              multiplier: skill.multiplier
+              isAoE: Boolean(skill.isAoE),
+              multiplier: skill.multiplier || 1.5
             };
-            battle.combatLogs.push(`[WARNING] ${enemy.name} is preparing [${skill.name}]! (${skill.castTime}s cast)`);
+            battle.combatLogs.push(`[WARNING] ${enemy.name} is preparing [${skill.name}]! (${skill.castTime || 2}s cast)`);
           } else {
-            const aliveHunters = battle.participants.filter(p => !p.isDead);
+            const aliveHunters = (battle.participants || []).filter(p => p && !p.isDead);
             if (aliveHunters.length === 0) {
               soundManager.playDefeat();
               setBattleResult('DEFEAT');
               return;
             }
 
-            const target = [...aliveHunters].sort((a, b) => b.threat - a.threat)[0];
+            const target = [...aliveHunters].sort((a, b) => (b.threat || 0) - (a.threat || 0))[0];
             if (target) {
               let dmgRed = target.job === 'VANGUARD' ? 0.20 : 0.0;
-              const dmg = Math.max(5, Math.floor(enemy.atk * (1 - dmgRed)));
+              const defBuff = (target.buffs || []).find(b => b.type === 'DEF');
+              if (defBuff) dmgRed += defBuff.value;
+              const dmg = Math.max(5, Math.floor((enemy.atk || 50) * (1 - dmgRed)));
               target.hp = Math.max(0, target.hp - dmg);
               if (target.hp <= 0) target.isDead = true;
 
-              soundManager.playSlash(enemy.element);
-              executeBossAttackOnHunter(target, dmg, enemy.element, false, false);
+              soundManager.playSlash(enemy.element || 'FIRE');
+              executeBossAttackOnHunter(target, dmg, enemy.element || 'FIRE', false, false);
               battle.combatLogs.push(`${enemy.name} attacked ${target.name} for ${dmg} DMG`);
 
               if (battle.participants.every(p => p.isDead)) {
@@ -1011,14 +1047,14 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
       }
 
       // Sync live player battle HP with TopHud bar every combat tick
-      const playerPart = battle.participants.find(p => p.isPlayer);
+      const playerPart = (battle.participants || []).find(p => p && p.isPlayer);
       if (playerPart) {
         gameActions.syncPlayerHp(playerPart.hp);
       }
     }, 100);
 
     return () => clearInterval(interval);
-  }, [battle, battleResult, comboCount, isBossStaggered, store.autoBattle, store.aiHunters, triggerSkill, addPopup, executeAttackFeedback, executeBossAttackOnHunter, getHunterCoords, checkEnemyDefeated]);
+  }, [battle, battleResult, comboCount, store.autoBattle, store.aiHunters, triggerSkill, addPopup, executeAttackFeedback, executeBossAttackOnHunter, getHunterCoords, checkEnemyDefeated]);
 
   // Listen for live P2P / Multi-Tab Co-op teammate hits, heals & emotes
   useEffect(() => {
@@ -1062,10 +1098,11 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
     );
   }
 
-  const playerCombatant = battle.participants.find(p => p.isPlayer);
-  const tmpl = ENEMY_TEMPLATES[battle.enemy.templateId] || ENEMY_TEMPLATES['moss-slime'];
-  const enemyHpPercent = Math.max(0, Math.min(100, (battle.enemy.hp / battle.enemy.maxHp) * 100));
-  const bossWeakness = getWeaknessElement(battle.enemy.element);
+  const playerCombatant = (battle.participants || []).find(p => p && p.isPlayer);
+  const tmpl = ENEMY_TEMPLATES[battle.enemy.templateId] || ENEMY_TEMPLATES[battle.enemyId] || ENEMY_TEMPLATES['moss-slime'] || { name: battle.enemy.name, expReward: 100, goldReward: 100, shardReward: 10 };
+  const enemyMaxHp = Math.max(1, battle.enemy.maxHp || 1000);
+  const enemyHpPercent = Math.max(0, Math.min(100, ((battle.enemy.hp || 0) / enemyMaxHp) * 100));
+  const bossWeakness = getWeaknessElement(battle.enemy.element || 'FIRE');
   const shouldShake = screenShake && (store.player.settings?.screenShake ?? true);
   const isCastingSkill = !!ultimateCutIn || !!animatingAttackerId;
 
@@ -1605,15 +1642,15 @@ export const BattleArena: React.FC<BattleArenaProps> = ({ battleId }) => {
               <div className="w-full bg-slate-950/80 rounded-xl p-3 border border-slate-800 flex justify-around mb-5">
                 <div className="flex flex-col items-center">
                   <span className="text-[10px] text-slate-400">EXP</span>
-                  <span className="text-xs font-bold text-cyan-400">+{tmpl.expReward}</span>
+                  <span className="text-xs font-bold text-cyan-400">+{tmpl?.expReward ?? 120}</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <span className="text-[10px] text-slate-400">GOLD</span>
-                  <span className="text-xs font-bold text-amber-400">+{tmpl.goldReward}</span>
+                  <span className="text-xs font-bold text-amber-400">+{tmpl?.goldReward ?? 100}</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <span className="text-[10px] text-slate-400">SHARDS</span>
-                  <span className="text-xs font-bold text-emerald-400">+{tmpl.shardReward}</span>
+                  <span className="text-xs font-bold text-emerald-400">+{tmpl?.shardReward ?? 15}</span>
                 </div>
               </div>
 

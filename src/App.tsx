@@ -3,6 +3,7 @@ import { useGameStore } from './state/useGameStore';
 import { TopHud } from './components/layout/TopHud';
 import { BottomDock } from './components/layout/BottomDock';
 import { OverworldMap } from './components/map/OverworldMap';
+import { BattleErrorBoundary } from './components/battle/BattleErrorBoundary';
 import { broadcastPresence } from './services/coopMultiplayer';
 import { getAccountState, subscribeAccountState } from './services/googleSyncService';
 
@@ -93,7 +94,9 @@ export const App: React.FC = () => {
         <div className="flex-1 w-full relative overflow-hidden flex flex-col">
           <Suspense fallback={<ViewLoadingFallback />}>
             {isBattle ? (
-              <BattleArena battleId={store.activeBattleId!} />
+              <BattleErrorBoundary battleId={store.activeBattleId!}>
+                <BattleArena battleId={store.activeBattleId!} />
+              </BattleErrorBoundary>
             ) : (
               <>
                 {store.activeTab === 'MAP' && <OverworldMap />}
