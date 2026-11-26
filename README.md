@@ -3,13 +3,14 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-f38020?style=for-the-badge&logo=cloudflare" alt="Cloudflare Pages" />
   <img src="https://img.shields.io/badge/Mirror-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github" alt="GitHub Pages" />
+  <img src="https://img.shields.io/badge/Powered%20by-Google%20DeepMind%20Antigravity%20AI-4285F4?style=for-the-badge&logo=google" alt="Antigravity AI" />
   <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20Desktop-blue?style=for-the-badge" alt="Platform" />
   <img src="https://img.shields.io/badge/Architecture-100%25%20Zero--Cost%20%7C%20P2P%20WebRTC-orange?style=for-the-badge" alt="P2P WebRTC" />
   <img src="https://img.shields.io/badge/Audio-FEH%20High--Fidelity%20128kbps%20MP3-purple?style=for-the-badge" alt="Audio" />
 </p>
 
 <p align="center">
-  <strong>A 2D retro action-JRPG featuring real-time P2P co-op multiplayer, a 5-weapon no-mana hotbar, drop-in MMO battle encounters, and cloud save synchronization.</strong>
+  <strong>A 2D retro action-JRPG powered by Google DeepMind Antigravity AI, featuring real-time P2P co-op multiplayer, a 5-weapon no-mana hotbar, drop-in MMO battle encounters, and cloud save synchronization.</strong>
 </p>
 
 <p align="center">
@@ -33,8 +34,16 @@ You can jump straight into the realm of **Pentavow** without installing any plug
 
 ---
 
-## 🌟 Game Inspiration
+## 🌟 Game Inspiration & AI Architecture
 
+### 🤖 Powered by Google DeepMind Antigravity AI
+**Pentavow** is an innovative showcase of autonomous agentic game engineering, designed, built, and optimized with **Google DeepMind Antigravity AI**:
+- **Intelligent Battle System Architecture:** Autonomous implementation of 5-weapon deck cycling, Phase 2 Boss Stagger breaks, and elemental reaction parries.
+- **2.5D Parallax Combat Arena:** Authentic multi-layer retro battlefields with dynamic pixel-art sprite rendering and hit-impact feedback.
+- **Real-Time P2P WebRTC Multiplayer:** Zero-cost multi-tab and multi-device multiplayer synchronization without dedicated backend servers.
+- **Deep Performance & Audio Engineering:** Automated reduction of project payload by **84%** (228 MB → 35.9 MB) using advanced asset pruning and LAME MP3 conversion.
+
+### 🎮 Gameplay Heritage
 **Pentavow** was created out of deep love for classic Japanese role-playing games and combines the best elements of two iconic titles:
 
 1. **Logres: Japanese RPG (Sword and Magic / 剣と魔法のログレス):**
