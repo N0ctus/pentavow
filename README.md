@@ -1,7 +1,8 @@
 # ⚔️ Pentavow
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Live%20on%20GitHub%20Pages-brightgreen?style=for-the-badge&logo=github" alt="Live Status" />
+  <img src="https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-f38020?style=for-the-badge&logo=cloudflare" alt="Cloudflare Pages" />
+  <img src="https://img.shields.io/badge/Mirror-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github" alt="GitHub Pages" />
   <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20Desktop-blue?style=for-the-badge" alt="Platform" />
   <img src="https://img.shields.io/badge/Architecture-100%25%20Zero--Cost%20%7C%20P2P%20WebRTC-orange?style=for-the-badge" alt="P2P WebRTC" />
   <img src="https://img.shields.io/badge/Audio-FEH%20High--Fidelity%20128kbps%20MP3-purple?style=for-the-badge" alt="Audio" />
@@ -12,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://n0ctus.github.io/pentavow/">
-    <img src="https://img.shields.io/badge/▶%20PLAY%20NOW%20IN%20BROWSER-CLICK%20HERE-red?style=for-the-badge&logo=googlechrome&logoColor=white" height="42" alt="Play Now" />
+  <a href="https://pentavow.pages.dev/">
+    <img src="https://img.shields.io/badge/▶%20PLAY%20NOW%20(CLOUDFLARE)-CLICK%20HERE-red?style=for-the-badge&logo=cloudflare&logoColor=white" height="42" alt="Play on Cloudflare" />
   </a>
 </p>
 
@@ -22,7 +23,11 @@
 ## 🎮 Play Immediately in Your Browser
 You can jump straight into the realm of **Pentavow** without installing any plugins or apps:
 
-### 🔗 **[https://n0ctus.github.io/pentavow/](https://n0ctus.github.io/pentavow/)**
+### ⚡ **Primary Link (Unlimited Fast Bandwidth):**
+👉 **[https://pentavow.pages.dev/](https://pentavow.pages.dev/)**
+
+### 🌐 **Backup Mirror:**
+👉 **[https://n0ctus.github.io/pentavow/](https://n0ctus.github.io/pentavow/)**
 
 *(Runs on PC, Mac, Linux, iOS Safari, Android Chrome, and modern mobile browsers with full touch controls!)*
 
