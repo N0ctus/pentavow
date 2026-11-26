@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "graphify": "python -m graphify update .",
+    "graphify:watch": "python -m graphify watch ."
   },
   "dependencies": {
     "lucide-react": "^1.16.0",

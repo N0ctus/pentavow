@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+temp/
+raw_source_assets/
+*.local
+.vercel
+.env
+.env.*.local
+
+# Graphify AST cache & temp signatures
+graphify-out/cache/
+graphify-out/.*
+
