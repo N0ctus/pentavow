@@ -54,13 +54,13 @@ export const TopHud: React.FC = () => {
               soundManager.playClick();
               setShowProfileModal(true);
             }}
-            className="flex items-center space-x-2 group cursor-pointer"
+            className="flex items-center space-x-1.5 group cursor-pointer min-w-0 shrink"
             title="Open Hunter Profile & Change Name"
           >
-            <div className="relative">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 border-2 border-amber-500/80 p-0.5 shadow-md flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
+            <div className="relative shrink-0">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 border-2 border-amber-500/80 p-0.5 shadow-md flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
                 <div
-                  className="w-full h-full rounded-full flex items-center justify-center font-bold text-xs"
+                  className="w-full h-full rounded-full flex items-center justify-center font-bold text-[11px]"
                   style={{
                     backgroundColor: player.customization.hairColor || '#ef4444',
                     color: '#ffffff',
@@ -71,44 +71,33 @@ export const TopHud: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               {/* Title */}
-              <span className="text-[8px] font-bold text-amber-400 truncate max-w-[95px] leading-tight">
+              <span className="text-[7.5px] font-bold text-amber-400 truncate max-w-[70px] sm:max-w-[95px] leading-tight">
                 [{player.customization.title || 'Novice Hunter'}]
               </span>
-              <div className="flex items-center space-x-1">
-                <span className="text-xs font-bold text-slate-100 truncate max-w-[80px]">{player.name}</span>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    soundManager.playClick();
-                    setShowProfileModal(true);
-                  }}
-                  className="text-amber-400 hover:text-amber-300 p-0.5 rounded transition-colors"
-                  title="Edit Character Name"
-                >
-                  <Edit2 className="w-2.5 h-2.5" />
-                </button>
-                <span className="text-[9px] font-semibold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1 rounded">
+              <div className="flex items-center space-x-1 min-w-0">
+                <span className="text-[11px] font-bold text-slate-100 truncate max-w-[55px] sm:max-w-[80px]">{player.name}</span>
+                <span className="text-[8px] font-semibold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-0.5 rounded shrink-0">
                   Lv.{jobProgress.level}
                 </span>
-                <span className="text-[9px] text-amber-300 font-bold ml-1">{jobDef.name}</span>
+                <span className="text-[8px] text-amber-300 font-bold ml-0.5 truncate hidden sm:inline">{jobDef.name}</span>
               </div>
             </div>
           </div>
 
           {/* Right: Currencies & Action Buttons */}
-          <div className="flex items-center space-x-1.5 shrink-0">
-            <div className="flex items-center space-x-1.5">
-              <div className="flex items-center space-x-1 bg-slate-950/70 border border-amber-500/20 px-2 py-0.5 rounded-full">
+          <div className="flex items-center space-x-1 shrink-0">
+            <div className="flex items-center space-x-1">
+              <div className="flex items-center space-x-0.5 bg-slate-950/70 border border-amber-500/20 px-1.5 py-0.5 rounded-full">
                 <Coins className="w-2.5 h-2.5 text-amber-400" />
-                <span className="text-[9px] font-bold text-amber-300 font-mono">
-                  {player.gold.toLocaleString()}
+                <span className="text-[8.5px] font-bold text-amber-300 font-mono">
+                  {player.gold >= 1000000 ? `${(player.gold / 1000000).toFixed(1)}M` : player.gold >= 10000 ? `${(player.gold / 1000).toFixed(1)}k` : player.gold.toLocaleString()}
                 </span>
               </div>
-              <div className="flex items-center space-x-1 bg-slate-950/70 border border-cyan-500/20 px-2 py-0.5 rounded-full">
+              <div className="flex items-center space-x-0.5 bg-slate-950/70 border border-cyan-500/20 px-1.5 py-0.5 rounded-full">
                 <Gem className="w-2.5 h-2.5 text-cyan-400" />
-                <span className="text-[9px] font-bold text-cyan-300 font-mono">
+                <span className="text-[8.5px] font-bold text-cyan-300 font-mono">
                   {player.tesseraShards.toLocaleString()}
                 </span>
               </div>
@@ -121,25 +110,24 @@ export const TopHud: React.FC = () => {
                 setShowAccountModal(true);
               }}
               title={acct.mode === 'google' && acct.googleUser ? `Synced: ${acct.googleUser.email}` : 'Guest Mode (Click to Sync with Google)'}
-              className={`px-1.5 py-1 rounded-full border text-[9px] font-black flex items-center gap-1 transition-all active:scale-95 ${
+              className={`p-1 rounded-full border text-[8px] font-black flex items-center justify-center transition-all active:scale-95 ${
                 acct.mode === 'google' && acct.googleUser
                   ? 'bg-emerald-950/80 border-emerald-400/60 text-emerald-300'
                   : 'bg-slate-900 border-slate-700 text-slate-300 hover:border-amber-400/60'
               }`}
             >
               {acct.mode === 'google' && acct.googleUser ? (
-                <Cloud className="w-2.5 h-2.5 text-emerald-400" />
+                <Cloud className="w-3 h-3 text-emerald-400" />
               ) : (
-                <User className="w-2.5 h-2.5 text-cyan-400" />
+                <User className="w-3 h-3 text-cyan-400" />
               )}
-              <span className="hidden sm:inline">{acct.mode === 'google' && acct.googleUser ? 'Synced' : 'Guest'}</span>
             </button>
 
             {/* Audio Mute/Unmute */}
             <button
               onClick={handleToggleSound}
               title={muted ? 'Unmute Sound' : 'Mute Sound'}
-              className={`p-1.5 rounded-full border transition-all ${
+              className={`p-1 rounded-full border transition-all ${
                 muted
                   ? 'bg-slate-900 border-slate-700 text-slate-500 hover:text-slate-300'
                   : 'bg-cyan-950/80 border-cyan-500/50 text-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.4)]'
@@ -155,7 +143,7 @@ export const TopHud: React.FC = () => {
                 setShowCodexModal(true);
               }}
               title="Hunter's Codex (Game Guide & Mechanics)"
-              className="p-1.5 rounded-full border bg-amber-950/60 border-amber-500/50 text-amber-300 hover:text-amber-100 hover:bg-amber-900/60 transition-all active:scale-95 shadow-[0_0_8px_rgba(245,158,11,0.3)]"
+              className="p-1 rounded-full border bg-amber-950/60 border-amber-500/50 text-amber-300 hover:text-amber-100 hover:bg-amber-900/60 transition-all active:scale-95 shadow-[0_0_8px_rgba(245,158,11,0.3)]"
             >
               <BookOpen className="w-3 h-3" />
             </button>
@@ -175,7 +163,7 @@ export const TopHud: React.FC = () => {
                   ? 'Widescreen (980px) - Click for Full Window'
                   : 'Full Window - Click for Compact'
               }`}
-              className="p-1.5 rounded-full border bg-slate-900 border-slate-700 hover:border-amber-400/80 text-amber-400 hover:text-amber-300 transition-all active:scale-95 flex items-center justify-center shadow-sm"
+              className="p-1 rounded-full border bg-slate-900 border-slate-700 hover:border-amber-400/80 text-amber-400 hover:text-amber-300 transition-all active:scale-95 flex items-center justify-center shadow-sm"
             >
               {store.player.settings?.screenSize === 'COMPACT' ? (
                 <Smartphone className="w-3 h-3 text-slate-400" />
@@ -195,7 +183,7 @@ export const TopHud: React.FC = () => {
                 setShowSettingsModal(true);
               }}
               title="System Preferences"
-              className="p-1.5 rounded-full border bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200 transition-all active:scale-95"
+              className="p-1 rounded-full border bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200 transition-all active:scale-95"
             >
               <Settings className="w-3 h-3" />
             </button>
