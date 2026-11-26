@@ -365,6 +365,8 @@ export interface CharacterCustomization {
   title: string;
 }
 
+export type ScreenDisplayMode = 'COMPACT' | 'STANDARD' | 'EXPANDED' | 'FULL';
+
 export interface GameSettings {
   masterVolume: number; // 0..100
   sfxVolume: number;    // 0..100
@@ -372,6 +374,7 @@ export interface GameSettings {
   screenShake: boolean;
   damageTextMode: 'ALL' | 'CRITS_ONLY' | 'CONDENSED';
   controlMode: 'JOYSTICK' | 'TAP_ONLY';
+  screenSize?: ScreenDisplayMode;
 }
 
 export interface PlayerProfile {

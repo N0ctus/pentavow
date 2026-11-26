@@ -83,10 +83,27 @@ export const App: React.FC = () => {
     store.maxHp,
   ]);
 
+  const screenMode = store.player.settings?.screenSize || 'EXPANDED';
+
+  const getScreenContainerClass = (mode: string) => {
+    switch (mode) {
+      case 'COMPACT':
+        return 'w-full max-w-[430px] h-full sm:h-[860px] sm:max-h-[96vh] sm:rounded-2xl sm:border sm:border-slate-800 shadow-2xl';
+      case 'STANDARD':
+        return 'w-full max-w-[680px] h-full sm:h-[900px] sm:max-h-[96vh] sm:rounded-2xl sm:border sm:border-slate-800 shadow-2xl';
+      case 'EXPANDED':
+        return 'w-full max-w-[980px] h-full sm:h-[940px] sm:max-h-[96vh] sm:rounded-2xl sm:border sm:border-slate-800 shadow-2xl';
+      case 'FULL':
+        return 'w-full max-w-none h-full rounded-none border-0 shadow-none';
+      default:
+        return 'w-full max-w-[980px] h-full sm:h-[940px] sm:max-h-[96vh] sm:rounded-2xl sm:border sm:border-slate-800 shadow-2xl';
+    }
+  };
+
   return (
     <div className="w-screen h-screen bg-slate-950 flex items-center justify-center overflow-hidden">
-      {/* Centered Mobile-First Viewport Frame (430px x 850px) */}
-      <main className="w-full max-w-[430px] h-full sm:h-[850px] mx-auto sm:border-x sm:border-slate-800 shadow-2xl overflow-hidden flex flex-col bg-slate-950 relative">
+      {/* Dynamic Desktop/Mobile Responsive Viewport Frame */}
+      <main className={`${getScreenContainerClass(screenMode)} mx-auto overflow-hidden flex flex-col bg-slate-950 relative transition-all duration-300`}>
         {/* Persistent Top HUD (64px) */}
         <TopHud />
 

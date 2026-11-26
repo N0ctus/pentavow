@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { useGameStore } from '../../state/useGameStore';
+import { useGameStore, gameActions } from '../../state/useGameStore';
 import { JOB_DEFINITIONS, EXP_TABLE } from '../../data/jobs';
-import { Shield, Sparkles, Heart, Coins, Gem, Crosshair, Feather, Volume2, VolumeX, Settings, Edit2, Compass, Cloud, User, BookOpen } from 'lucide-react';
+import { Shield, Sparkles, Heart, Coins, Gem, Crosshair, Feather, Volume2, VolumeX, Settings, Edit2, Compass, Cloud, User, BookOpen, Monitor, Maximize2, Smartphone, Tv } from 'lucide-react';
 import { soundManager } from '../../utils/audioManager';
 import { getRealmById } from '../../data/realms';
 import { getAccountState, subscribeAccountState } from '../../services/googleSyncService';
@@ -158,6 +158,34 @@ export const TopHud: React.FC = () => {
               className="p-1.5 rounded-full border bg-amber-950/60 border-amber-500/50 text-amber-300 hover:text-amber-100 hover:bg-amber-900/60 transition-all active:scale-95 shadow-[0_0_8px_rgba(245,158,11,0.3)]"
             >
               <BookOpen className="w-3 h-3" />
+            </button>
+
+            {/* Desktop Screen Size Cycle Toggle */}
+            <button
+              onClick={() => {
+                soundManager.playClick();
+                gameActions.cycleScreenSize();
+              }}
+              title={`Desktop Screen View: ${
+                store.player.settings?.screenSize === 'COMPACT'
+                  ? 'Compact (430px) - Click for Standard'
+                  : store.player.settings?.screenSize === 'STANDARD'
+                  ? 'Standard (680px) - Click for Widescreen'
+                  : store.player.settings?.screenSize === 'EXPANDED'
+                  ? 'Widescreen (980px) - Click for Full Window'
+                  : 'Full Window - Click for Compact'
+              }`}
+              className="p-1.5 rounded-full border bg-slate-900 border-slate-700 hover:border-amber-400/80 text-amber-400 hover:text-amber-300 transition-all active:scale-95 flex items-center justify-center shadow-sm"
+            >
+              {store.player.settings?.screenSize === 'COMPACT' ? (
+                <Smartphone className="w-3 h-3 text-slate-400" />
+              ) : store.player.settings?.screenSize === 'STANDARD' ? (
+                <Monitor className="w-3 h-3 text-cyan-400" />
+              ) : store.player.settings?.screenSize === 'EXPANDED' ? (
+                <Tv className="w-3 h-3 text-amber-400" />
+              ) : (
+                <Maximize2 className="w-3 h-3 text-emerald-400" />
+              )}
             </button>
 
             {/* Settings Button */}

@@ -7,7 +7,8 @@ import {
   AIHunter, 
   OverworldEnemy,
   Combatant,
-  EnemyCombatant
+  EnemyCombatant,
+  ScreenDisplayMode
 } from '../types/game';
 import { ALL_WEAPONS, WEAPON_MAP, STARTER_LOADOUTS } from '../data/weapons';
 import { MYTHIC_WEAPON_BY_JOB } from '../data/mythicWeapons';
@@ -195,6 +196,21 @@ const STARTER_WEAPON_ID_SET = new Set<string>(Object.values(STARTER_LOADOUTS).fl
 
 const INITIAL_ENEMIES: OverworldEnemy[] = generateRealmEnemies('whispering-glade');
 
+const getInitialScreenSize = (): ScreenDisplayMode => {
+  if (typeof window === 'undefined') return 'EXPANDED';
+  try {
+    const saved = localStorage.getItem('pentavow_screen_mode') as ScreenDisplayMode;
+    if (saved && ['COMPACT', 'STANDARD', 'EXPANDED', 'FULL'].includes(saved)) {
+      return saved;
+    }
+  } catch (e) {
+    // Ignore storage issues
+  }
+  if (window.innerWidth >= 1024) return 'EXPANDED';
+  if (window.innerWidth >= 640) return 'STANDARD';
+  return 'COMPACT';
+};
+
 function getInitialProfile(): PlayerProfile {
   // New players start completely unarmed and must farm/summon their weapons in battle
   const initialInventory: Weapon[] = [];
@@ -271,6 +287,7 @@ function getInitialProfile(): PlayerProfile {
       screenShake: true,
       damageTextMode: 'ALL',
       controlMode: 'JOYSTICK',
+      screenSize: getInitialScreenSize(),
     },
     equippedWeaponIds: initialEquipped,
     defeatedRealmBosses: {},
@@ -1032,7 +1049,23 @@ export const gameActions = {
       ...state.player.settings,
       ...settings
     };
+    if (settings.screenSize) {
+      try {
+        localStorage.setItem('pentavow_screen_mode', settings.screenSize);
+      } catch (e) {
+        // ignore storage issues
+      }
+    }
     notify();
+  },
+
+  cycleScreenSize() {
+    const order: ScreenDisplayMode[] = ['COMPACT', 'STANDARD', 'EXPANDED', 'FULL'];
+    const cur = state.player.settings.screenSize || 'EXPANDED';
+    const nextIdx = (order.indexOf(cur) + 1) % order.length;
+    const next = order[nextIdx];
+    this.updateSettings({ screenSize: next });
+    return next;
   },
 
   completeHeroOnboarding(heroName: string, chosenJob: 'WARRIOR' | 'MAGE' | 'PRIEST') {

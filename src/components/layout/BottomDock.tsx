@@ -24,70 +24,72 @@ export const BottomDock: React.FC<BottomDockProps> = ({
   if (!isBattle) {
     return (
       <nav className="h-20 w-full bg-slate-900/95 backdrop-blur-md border-t border-slate-800/80 px-2 flex items-center justify-around select-none z-30 shrink-0">
-        <button
-          onClick={() => {
-            soundManager.playClick();
-            gameActions.setActiveTab('MAP');
-          }}
-          className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all ${
-            store.activeTab === 'MAP'
-              ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 font-bold'
-              : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <Map className="w-5 h-5 mb-1" />
-          <span className="text-[11px]">Map</span>
-        </button>
+        <div className="w-full max-w-xl mx-auto flex items-center justify-around">
+          <button
+            onClick={() => {
+              soundManager.playClick();
+              gameActions.setActiveTab('MAP');
+            }}
+            className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all ${
+              store.activeTab === 'MAP'
+                ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Map className="w-5 h-5 mb-1" />
+            <span className="text-[11px]">Map</span>
+          </button>
 
-        <button
-          onClick={() => {
-            soundManager.playClick();
-            gameActions.setActiveTab('EQUIP');
-            gameActions.completeNoviceStep(2);
-          }}
-          className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all ${
-            store.activeTab === 'EQUIP'
-              ? 'text-amber-400 bg-amber-950/40 border border-amber-500/30 font-bold'
-              : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <Shield className="w-5 h-5 mb-1" />
-          <span className="text-[11px]">Equip</span>
-        </button>
+          <button
+            onClick={() => {
+              soundManager.playClick();
+              gameActions.setActiveTab('EQUIP');
+              gameActions.completeNoviceStep(2);
+            }}
+            className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all ${
+              store.activeTab === 'EQUIP'
+                ? 'text-amber-400 bg-amber-950/40 border border-amber-500/30 font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Shield className="w-5 h-5 mb-1" />
+            <span className="text-[11px]">Equip</span>
+          </button>
 
-        <button
-          onClick={() => {
-            soundManager.playClick();
-            gameActions.setActiveTab('JOBS');
-            gameActions.completeNoviceStep(5);
-          }}
-          className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all ${
-            store.activeTab === 'JOBS'
-              ? 'text-purple-400 bg-purple-950/40 border border-purple-500/30 font-bold'
-              : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <User className="w-5 h-5 mb-1" />
-          <span className="text-[11px]">Jobs</span>
-        </button>
+          <button
+            onClick={() => {
+              soundManager.playClick();
+              gameActions.setActiveTab('JOBS');
+              gameActions.completeNoviceStep(5);
+            }}
+            className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all ${
+              store.activeTab === 'JOBS'
+                ? 'text-purple-400 bg-purple-950/40 border border-purple-500/30 font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <User className="w-5 h-5 mb-1" />
+            <span className="text-[11px]">Jobs</span>
+          </button>
 
-        <button
-          onClick={() => {
-            soundManager.playClick();
-            gameActions.setActiveTab('SUMMON');
-          }}
-          className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all relative ${
-            store.activeTab === 'SUMMON'
-              ? 'text-amber-400 bg-amber-950/40 border border-amber-500/30 font-bold'
-              : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <Sparkles className="w-5 h-5 mb-1 text-amber-400 animate-pulse" />
-          <span className="text-[11px]">Astral Summon</span>
-          {store.player.tesseraShards >= 100 && (
-            <span className="absolute top-1 right-2 w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-          )}
-        </button>
+          <button
+            onClick={() => {
+              soundManager.playClick();
+              gameActions.setActiveTab('SUMMON');
+            }}
+            className={`flex flex-col items-center justify-center flex-1 py-1.5 rounded-lg transition-all relative ${
+              store.activeTab === 'SUMMON'
+                ? 'text-amber-400 bg-amber-950/40 border border-amber-500/30 font-bold'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Sparkles className="w-5 h-5 mb-1 text-amber-400 animate-pulse" />
+            <span className="text-[11px]">Astral Summon</span>
+            {store.player.tesseraShards >= 100 && (
+              <span className="absolute top-1 right-2 w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+            )}
+          </button>
+        </div>
       </nav>
     );
   }
@@ -102,8 +104,9 @@ export const BottomDock: React.FC<BottomDockProps> = ({
 
   return (
     <div className="h-40 w-full bg-slate-950/95 backdrop-blur-md border-t border-slate-800 px-2 py-1.5 flex flex-col justify-between select-none z-30 shrink-0">
-      {/* Top Utility Bar: Auto-Battle Toggle & Flee Button */}
-      <div className="flex items-center justify-between px-2 pt-0.5">
+      <div className="w-full max-w-2xl mx-auto flex flex-col justify-between h-full">
+        {/* Top Utility Bar: Auto-Battle Toggle & Flee Button */}
+        <div className="flex items-center justify-between px-2 pt-0.5">
         <div className="flex items-center space-x-2">
           <button
             onClick={() => gameActions.toggleAutoBattle()}
@@ -302,6 +305,7 @@ export const BottomDock: React.FC<BottomDockProps> = ({
             </button>
           );
         })}
+        </div>
       </div>
     </div>
   );

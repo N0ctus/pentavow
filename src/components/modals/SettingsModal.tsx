@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useGameStore, gameActions } from '../../state/useGameStore';
 import { soundManager } from '../../utils/audioManager';
-import { Settings, Volume2, Smartphone, ShieldCheck, Download, Trash2, X, Check, User } from 'lucide-react';
+import { Settings, Volume2, Smartphone, ShieldCheck, Download, Trash2, X, Check, User, Monitor, Tv, Maximize2 } from 'lucide-react';
+import { ScreenDisplayMode } from '../../types/game';
 
 interface SettingsModalProps {
   onClose: () => void;
@@ -20,6 +21,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose }) => {
   const [screenShake, setScreenShake] = useState(settings.screenShake);
   const [damageMode, setDamageMode] = useState(settings.damageTextMode);
   const [controlMode, setControlMode] = useState(settings.controlMode);
+  const [screenSize, setScreenSize] = useState<ScreenDisplayMode>(settings.screenSize || 'EXPANDED');
 
   const [exportedToast, setExportedToast] = useState(false);
 
@@ -45,6 +47,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose }) => {
       screenShake,
       damageTextMode: damageMode,
       controlMode,
+      screenSize,
     });
     onClose();
   };
@@ -219,6 +222,50 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose }) => {
                   </button>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Desktop Display Size */}
+          <div className="bg-slate-950/70 rounded-xl p-3 border border-slate-800 space-y-2">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center space-x-1">
+              <Monitor className="w-3.5 h-3.5 text-amber-400" />
+              <span>Desktop Screen Size</span>
+            </span>
+            <p className="text-[9px] text-slate-500">
+              Customize the game viewport for desktop monitors & laptops (auto-saved).
+            </p>
+
+            <div className="grid grid-cols-2 gap-1.5">
+              {[
+                { id: 'COMPACT', label: 'Compact (430px)', desc: 'Mobile / Multi-tab', icon: Smartphone },
+                { id: 'STANDARD', label: 'Standard (680px)', desc: 'Tablet / Balanced', icon: Monitor },
+                { id: 'EXPANDED', label: 'Widescreen (980px)', desc: 'Wide Anime Arena', icon: Tv },
+                { id: 'FULL', label: 'Full Window', desc: '100% Screen Immersion', icon: Maximize2 },
+              ].map(opt => {
+                const IconComponent = opt.icon;
+                const isSelected = screenSize === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => {
+                      setScreenSize(opt.id as ScreenDisplayMode);
+                      gameActions.updateSettings({ screenSize: opt.id as ScreenDisplayMode });
+                    }}
+                    className={`p-2 rounded-xl border text-left transition-all ${
+                      isSelected
+                        ? 'border-amber-400 bg-amber-950/40 text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.25)]'
+                        : 'border-slate-800 bg-slate-900/60 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-1.5 font-bold text-[10px]">
+                      <IconComponent className={`w-3.5 h-3.5 ${isSelected ? 'text-amber-400' : 'text-slate-400'}`} />
+                      <span>{opt.label}</span>
+                    </div>
+                    <div className="text-[8px] text-slate-500 mt-0.5">{opt.desc}</div>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
