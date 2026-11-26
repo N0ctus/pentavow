@@ -118,8 +118,11 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center space-x-2 mt-0.5">
+              <div className="flex items-center space-x-1.5 mt-0.5">
                 <span className="text-sm font-black text-slate-100 truncate">{player.name}</span>
+                <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-950 border border-slate-700/80 px-1.5 py-0.5 rounded shadow-inner" title="Unique Hunter Discriminator Tag">
+                  #{player.hunterTag || '1000'}
+                </span>
                 <button
                   onClick={() => {
                     soundManager.playClick();

@@ -1,4 +1,10 @@
 import { PlayerProfile } from '../types/game';
+import {
+  saveAuthCookie,
+  readAuthCookie,
+  generateUniqueHunterTag,
+  clearAllPentavowCookies,
+} from '../utils/cookiePersistence';
 
 export type AuthMode = 'guest' | 'google';
 
@@ -59,6 +65,16 @@ function readStoredMeta(): StoredAuthMeta {
   } catch {
     // Ignore storage read errors
   }
+  // Fallback to resilient cookie storage if localStorage is missing or cleared
+  const cookieMeta = readAuthCookie();
+  if (cookieMeta) {
+    return {
+      chosen: cookieMeta.chosen,
+      mode: cookieMeta.mode,
+      googleUser: cookieMeta.googleUser || null,
+      lastSyncedAt: cookieMeta.lastSyncedAt || null,
+    };
+  }
   return { chosen: false, mode: 'guest', googleUser: null, lastSyncedAt: null };
 }
 
@@ -102,6 +118,18 @@ function persistMeta() {
     );
   } catch {
     // Ignore storage write errors
+  }
+  // Also backup to resilient cookie storage
+  try {
+    saveAuthCookie({
+      chosen: accountState.chosen,
+      mode: accountState.mode,
+      googleUser: accountState.googleUser,
+      hunterTag: generateUniqueHunterTag(accountState.googleUser?.email),
+      lastSyncedAt: accountState.lastSyncedAt,
+    });
+  } catch {
+    // Ignore cookie write errors
   }
 }
 
@@ -331,11 +359,24 @@ export async function connectGoogleAndSync(
     const cloudSave = await downloadDriveSave(token);
     const local = getLocalSave();
 
+    const googleHunterTag = generateUniqueHunterTag(profile?.email);
     let source: 'cloud' | 'local' = 'local';
     if (cloudSave?.player) {
+      if (!cloudSave.player.hunterTag) {
+        cloudSave.player.hunterTag = googleHunterTag;
+      }
       applyCloudSave(cloudSave.player, cloudSave.currentRealmId || local.currentRealmId);
       source = 'cloud';
     } else {
+      if (!local.player.hunterTag) {
+        local.player.hunterTag = googleHunterTag;
+      }
+      if (local.player.name === 'Valerius' && profile?.name) {
+        const firstName = profile.name.split(' ')[0].trim().slice(0, 16);
+        if (firstName) {
+          local.player.name = firstName;
+        }
+      }
       await uploadDriveSave(token, {
         version: 1,
         updatedAt: Date.now(),
@@ -419,6 +460,7 @@ export function disconnectGoogleAccount() {
   }
   accessToken = null;
   cachedDriveFileId = null;
+  clearAllPentavowCookies();
   accountState = {
     ...accountState,
     chosen: true,

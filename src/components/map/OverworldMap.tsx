@@ -1040,6 +1040,9 @@ export const OverworldMap: React.FC = () => {
                 <ClassIcon job={peer.job} size="xs" showTooltip={false} />
                 <span className="text-[7px] font-black text-emerald-300 uppercase">CO-OP</span>
                 <span className="text-sky-200 font-bold">{peer.name}</span>
+                {peer.hunterTag && (
+                  <span className="text-[7.5px] font-mono text-cyan-400 font-bold">#{peer.hunterTag}</span>
+                )}
                 <span className="text-slate-400 text-[8px]">Lv.{peer.level}</span>
               </div>
               <SpriteRenderer

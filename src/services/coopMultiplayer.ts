@@ -5,6 +5,7 @@ import { AuthMode } from './googleSyncService';
 export type RemotePeerState = {
   peerId: string;
   name: string;
+  hunterTag?: string;
   title: string;
   job: JobType;
   skin?: string;

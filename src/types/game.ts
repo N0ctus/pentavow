@@ -379,6 +379,7 @@ export interface GameSettings {
 
 export interface PlayerProfile {
   name: string;
+  hunterTag?: string; // 4-digit unique discriminator (e.g. "4821")
   currentJob: JobType;
   jobs: Record<JobType, PlayerJobProgress>;
   gold: number;

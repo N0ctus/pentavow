@@ -105,7 +105,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose }) => {
             <div>
               <div className="flex justify-between text-[10px] mb-1">
                 <span className="text-slate-300 font-semibold">Character Name</span>
-                <span className="text-[9px] text-slate-500 font-mono">Max 16 chars</span>
+                <span className="text-[9px] text-amber-400 font-mono font-bold">Unique Tag: #{store.player.hunterTag || '1000'}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <input

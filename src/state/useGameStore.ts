@@ -36,7 +36,15 @@ import {
   pickRandomWalkableTarget,
   resolveEntityMove,
 } from '../utils/pmdTileEngine';
-import { scheduleGoogleCloudUpload } from '../services/googleSyncService';
+import { scheduleGoogleCloudUpload, getAccountState } from '../services/googleSyncService';
+import {
+  saveStateDigestCookie,
+  readStateDigestCookie,
+  readAuthCookie,
+  generateUniqueHunterTag,
+  getPartitionedSaveKey,
+  clearAllPentavowCookies,
+} from '../utils/cookiePersistence';
 
 const aiPaths = new Map<string, Array<{ x: number; y: number }>>();
 
@@ -212,12 +220,19 @@ const getInitialScreenSize = (): ScreenDisplayMode => {
 };
 
 function getInitialProfile(): PlayerProfile {
-  // New players start completely unarmed and must farm/summon their weapons in battle
+  // Check if auth cookie or Google session has an account
+  const authCookie = typeof window !== 'undefined' ? readAuthCookie() : null;
   const initialInventory: Weapon[] = [];
   const initialEquipped: string[] = [];
 
+  const hunterTag = authCookie?.hunterTag || generateUniqueHunterTag(authCookie?.googleUser?.email);
+  const initialName = authCookie?.googleUser?.name
+    ? authCookie.googleUser.name.split(' ')[0].trim().slice(0, 16)
+    : 'Valerius';
+
   return {
-    name: 'Valerius',
+    name: initialName,
+    hunterTag,
     currentJob: 'WARRIOR',
     jobs: {
       // 1. Martial Path
@@ -335,13 +350,28 @@ export function flushSaveState() {
     saveTimer = null;
   }
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    const payload = JSON.stringify({
       player: state.player,
       currentRealmId: state.currentRealmId,
-    }));
+    });
+
+    // 1. Primary local save
+    localStorage.setItem(STORAGE_KEY, payload);
+
+    // 2. Account-partitioned local save if logged into Google
+    const acct = getAccountState();
+    if (acct.mode === 'google' && acct.googleUser?.email) {
+      const partKey = getPartitionedSaveKey(acct.googleUser.email);
+      localStorage.setItem(partKey, payload);
+    }
+
+    // 3. Resilient Cookie Save Digest (keeps game state alive even if cookies or localStorage are reset)
+    saveStateDigestCookie(state.player, state.currentRealmId, acct.googleUser?.email);
+
+    // 4. Remote Google Drive Cloud Sync
     scheduleGoogleCloudUpload(state.player, state.currentRealmId);
   } catch (e) {
-    console.error('Failed to save to localStorage', e);
+    console.error('Failed to save state', e);
   }
 }
 
@@ -390,9 +420,46 @@ function calculateMaxHp(profile: PlayerProfile): number {
 
 function loadInitialState(): GameState {
   try {
-    const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
+    const authCookie = typeof window !== 'undefined' ? readAuthCookie() : null;
+    const partKey = getPartitionedSaveKey(authCookie?.googleUser?.email);
+
+    let saved = (typeof localStorage !== 'undefined' && authCookie?.mode === 'google' && authCookie.googleUser?.email ? localStorage.getItem(partKey) : null)
+      || (typeof localStorage !== 'undefined' ? (localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY)) : null);
+
+    let parsed: any = null;
     if (saved) {
-      const parsed = JSON.parse(saved);
+      try {
+        parsed = JSON.parse(saved);
+      } catch {
+        parsed = null;
+      }
+    }
+
+    // Cookie recovery fallback if localStorage was cleared or empty
+    if (!parsed?.player && typeof window !== 'undefined') {
+      const digest = readStateDigestCookie();
+      if (digest) {
+        const fallbackProfile = getInitialProfile();
+        fallbackProfile.name = digest.heroName || fallbackProfile.name;
+        fallbackProfile.hunterTag = digest.hunterTag || fallbackProfile.hunterTag;
+        if (digest.currentJob && fallbackProfile.jobs[digest.currentJob as JobType]) {
+          fallbackProfile.currentJob = digest.currentJob as JobType;
+          fallbackProfile.jobs[digest.currentJob as JobType].level = digest.level || 1;
+        }
+        fallbackProfile.gold = digest.gold || 2500;
+        fallbackProfile.tesseraShards = digest.tesseraShards || 500;
+        parsed = {
+          player: fallbackProfile,
+          currentRealmId: digest.currentRealmId || 'whispering-glade',
+        };
+      }
+    }
+
+    if (parsed && parsed.player) {
+      // Ensure player has a unique hunter tag
+      if (!parsed.player.hunterTag) {
+        parsed.player.hunterTag = authCookie?.hunterTag || generateUniqueHunterTag(authCookie?.googleUser?.email);
+      }
       // Validate and sanitize parsed
       if (parsed.player) {
         if (!parsed.player.completedQuests) {
@@ -773,15 +840,21 @@ export const gameActions = {
   setPlayerName(newName: string) {
     const trimmed = newName.trim();
     if (!trimmed) return;
-    const cleanName = trimmed.slice(0, 16);
+    const parts = trimmed.split('#');
+    const cleanName = parts[0].trim().slice(0, 16) || 'Hero';
     state.player.name = cleanName;
+    if (parts.length > 1 && /^\d{4}$/.test(parts[1].trim())) {
+      state.player.hunterTag = parts[1].trim();
+    } else if (!state.player.hunterTag) {
+      state.player.hunterTag = generateUniqueHunterTag();
+    }
     // Update player combatant in all active battles
     Object.values(state.battles).forEach(b => {
       const p = b.participants.find(part => part.isPlayer);
       if (p) p.name = cleanName;
     });
-    saveState();
-    notify();
+    saveState(true);
+    notify(true);
   },
 
 
@@ -1069,8 +1142,15 @@ export const gameActions = {
   },
 
   completeHeroOnboarding(heroName: string, chosenJob: 'WARRIOR' | 'MAGE' | 'PRIEST') {
-    const cleanName = heroName.trim().slice(0, 16) || 'Hero';
+    const raw = heroName.trim();
+    const parts = raw.split('#');
+    const cleanName = parts[0].trim().slice(0, 16) || 'Hero';
     state.player.name = cleanName;
+    if (parts.length > 1 && /^\d{4}$/.test(parts[1].trim())) {
+      state.player.hunterTag = parts[1].trim();
+    } else if (!state.player.hunterTag) {
+      state.player.hunterTag = generateUniqueHunterTag();
+    }
     state.player.currentJob = chosenJob;
     if (!state.player.jobs[chosenJob]) {
       state.player.jobs[chosenJob] = { level: 1, exp: 0 };
@@ -1186,7 +1266,9 @@ export const gameActions = {
     }
     try {
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(LEGACY_STORAGE_KEY);
       localStorage.removeItem('tessera_auth_choice_v1');
+      clearAllPentavowCookies();
     } catch {
       // Ignore
     }

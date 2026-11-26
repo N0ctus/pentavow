@@ -54,6 +54,7 @@ export const App: React.FC = () => {
       const acct = getAccountState();
       broadcastPresence({
         name: store.player.name,
+        hunterTag: store.player.hunterTag || '1000',
         title: store.player.customization?.title || 'Novice Hunter',
         job: store.player.currentJob,
         skin: store.player.equippedSkins?.[store.player.currentJob],

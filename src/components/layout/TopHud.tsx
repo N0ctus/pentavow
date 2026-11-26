@@ -78,6 +78,9 @@ export const TopHud: React.FC = () => {
               </span>
               <div className="flex items-center space-x-1 min-w-0">
                 <span className="text-[11px] font-bold text-slate-100 truncate max-w-[55px] sm:max-w-[80px]">{player.name}</span>
+                <span className="text-[8px] font-mono font-bold text-slate-400 bg-slate-950/80 border border-slate-700/60 px-1 py-0.2 rounded shrink-0" title={`Unique Hunter ID: ${player.name}#${player.hunterTag || '1000'}`}>
+                  #{player.hunterTag || '1000'}
+                </span>
                 <span className="text-[8px] font-semibold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-0.5 rounded shrink-0">
                   Lv.{jobProgress.level}
                 </span>
