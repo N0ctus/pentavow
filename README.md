@@ -1,6 +1,10 @@
 # ⚔️ Pentavow
 
 <p align="center">
+  <img src="public/pentavow_icon.png" width="120" height="120" alt="Pentavow Game Icon" style="border-radius: 24px;" />
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-f38020?style=for-the-badge&logo=cloudflare" alt="Cloudflare Pages" />
   <img src="https://img.shields.io/badge/Mirror-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github" alt="GitHub Pages" />
   <img src="https://img.shields.io/badge/Powered%20by-Google%20DeepMind%20Antigravity%20AI-4285F4?style=for-the-badge&logo=google" alt="Antigravity AI" />
