@@ -421,7 +421,7 @@ export const HuntersCodexModal: React.FC<HuntersCodexModalProps> = ({ onClose, i
         {/* Footer */}
         <div className="p-3 border-t border-slate-800 bg-slate-900/90 flex items-center justify-between shrink-0">
           <span className="text-[10px] text-slate-400">
-            Pentavow v1.0 • Hunter&apos;s Codex
+            Pentavow v1.0 • Built with Antigravity AI • Hunter&apos;s Codex
           </span>
           <button
             onClick={() => {
